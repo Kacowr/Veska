@@ -1,0 +1,203 @@
+---
+import "./Contact.scss";
+import phone from "./../images/phone.svg";
+import envelope from "./../images/envelope.svg";
+---
+
+<div class="contact" id="kontakt">
+  <div class="contact-left">
+    <h1 class="contact-left-heading">Napisz do nas!</h1>
+    <p class="contact-left-text">
+      Chcesz stworzyć nową stronę internetową lub odświeżyć istniejącą witrynę?
+      Jesteśmy tu, aby pomóc! Z pasją realizujemy projekty związane z tworzeniem
+      stron internetowych i aplikacji webowych. Jeśli masz jakiekolwiek pytania,
+      potrzebujesz pomocy lub chcesz uzyskać więcej informacji na temat możliwej
+      współpracy, jesteśmy do Twojej dyspozycji. Z przyjemnością odpowiemy na
+      wszystkie pytania i doradzimy, aby znaleźć najlepsze rozwiązanie dla
+      Twojego projektu. Możesz skontaktować się z nami za pomocą poniższych
+      danych kontaktowych:
+    </p>
+    <div class="contact-left-contactdetails">
+      <img src={envelope.src} alt="koperta" />
+      <p>kontakt@veska.dev</p>
+    </div>
+    <div class="contact-left-contactdetails">
+      <img src={phone.src} alt="telefon" />
+      <p>+49 420 420 420</p>
+    </div>
+  </div>
+  <div class="contact-right">
+    <form method="POST" class="contact-right-form">
+      <p class="contact-right-label">Imię</p>
+      <input
+        class="contact-right-input"
+        type="text"
+        placeholder="Jan"
+        name="name"
+        required
+      />
+      <p class="contact-right-label">E-Mail</p>
+      <input
+        class="contact-right-input"
+        type="email"
+        placeholder="jan@poczta.pl"
+        name="email"
+        required
+      />
+      <p class="contact-right-label">Telefon</p>
+      <input
+        class="contact-right-input"
+        type="tel"
+        placeholder="+48 000 000 000"
+        name="tel"
+        required
+      />
+      <p class="contact-right-label">Twoja wiadomość</p>
+      <textarea
+        class="contact-right-input"
+        rows="10"
+        name="message"
+        placeholder="Cześć, ..."
+        required></textarea>
+      <input class="contact-right-submit" type="submit" value="Wyślij" />
+    </form>
+  </div>
+</div>
+
+<div class="contact-mobile">
+  <h1 class="contact-mobile-heading">Napisz do nas!</h1>
+  <p class="contact-mobile-text">
+    Chcesz stworzyć nową stronę internetową lub odświeżyć istniejącą witrynę?
+    Jesteśmy tu, aby pomóc! Z pasją realizujemy projekty związane z tworzeniem
+    stron internetowych i aplikacji webowych. Jeśli masz jakiekolwiek pytania,
+    potrzebujesz pomocy lub chcesz uzyskać więcej informacji na temat możliwej
+    współpracy, jesteśmy do Twojej dyspozycji. Z przyjemnością odpowiemy na
+    wszystkie pytania i doradzimy, aby znaleźć najlepsze rozwiązanie dla Twojego
+    projektu. Możesz skontaktować się z nami za pomocą poniższych danych
+    kontaktowych:
+  </p>
+  <div class="contact-mobile-contactdetails">
+    <img src={envelope.src} alt="koperta" />
+    <p>kontakt@veska.dev</p>
+  </div>
+  <div class="contact-mobile-contactdetails">
+    <img src={phone.src} alt="telefon" />
+    <p>+49 420 420 420</p>
+  </div>
+  <form method="POST" class="contact-mobile-form">
+    <p class="contact-mobile-label">Imię</p>
+    <input
+      class="contact-mobile-input"
+      type="text"
+      placeholder="Jan"
+      name="name"
+      required
+    />
+    <p class="contact-mobile-label">E-Mail</p>
+    <input
+      class="contact-mobile-input"
+      type="email"
+      placeholder="jan@poczta.pl"
+      name="email"
+      required
+    />
+    <p class="contact-mobile-label">Telefon</p>
+    <input
+      class="contact-mobile-input"
+      type="tel"
+      placeholder="+48 000 000 000"
+      name="tel"
+      required
+    />
+    <p class="contact-mobile-label">Twoja wiadomość</p>
+    <textarea
+      class="contact-mobile-input"
+      rows="10"
+      name="message"
+      placeholder="Cześć, ..."
+      required></textarea>
+    <input class="contact-mobile-submit" type="submit" value="Wyślij" />
+  </form>
+</div>
+
+<script is:inline>
+  if (window.history.replaceState) {
+    window.history.replaceState(null, null, window.location.href);
+  }
+</script>
+
+<script>
+  async function sendForm(e: Event) {
+    e.preventDefault();
+    const data = new FormData(e.target as HTMLFormElement);
+    const parsedData: any = {};
+    for (const entry of data) {
+      parsedData[entry[0]] = entry[1];
+    }
+
+    // console.log(parsedData);
+    const res = await fetch(
+      "https://b3tksqsbg1.execute-api.eu-central-1.amazonaws.com/default/sendVeskaEmail",
+      { method: "POST", body: JSON.stringify(parsedData) }
+    );
+
+    const body: any = await res.json();
+
+    alert(
+      body.success === 1
+        ? "Poprawnie wysłano wiadomość"
+        : "Nie udało się przesłać wiadomości"
+    );
+  }
+
+  document
+    .querySelector(".contact-right-form")
+    ?.addEventListener("submit", sendForm, false);
+  document
+    .querySelector(".contact-mobile-form")
+    ?.addEventListener("submit", sendForm, false);
+</script>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // const tl = gsap.timeline();
+
+  gsap.from(".contact-right-form > *", {
+    scrollTrigger: ".contact-right-form",
+    opacity: 0,
+    y: -10,
+    stagger: 0.1,
+    duration: 1,
+    delay: 1,
+  });
+
+  gsap.from(".contact-left-heading", {
+    scrollTrigger: ".contact-left",
+    y: -50,
+    opacity: 0,
+    duration: 0.5,
+    // delay: 1,
+  });
+  gsap.from(".contact-left-text", {
+    scrollTrigger: ".contact-left",
+    y: -10,
+    opacity: 0,
+    duration: 0.5,
+    delay: 0.5,
+  });
+  gsap.from(".contact-left-contactdetails", {
+    scrollTrigger: ".contact-left",
+    x: -10,
+    opacity: 0,
+    duration: 0.5,
+    stagger: 0.5,
+    delay: 2,
+    // delay: .5
+  });
+
+  // tl.play();
+</script>

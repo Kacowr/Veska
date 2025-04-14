@@ -1,0 +1,57 @@
+---
+import Hero from "../components/Hero.astro";
+import Navbar from "../components/Navbar.astro";
+import WhyNeedSite from "../components/WhyNeedSite.astro";
+import WhyUs from "../components/WhyUs.astro";
+import Cooperation from "../components/Cooperation.astro";
+import Contact from "../components/Contact.astro";
+import "../styles/global.css";
+
+---
+
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Veska - Profesjonalne Strony Internetowe</title>
+    <meta
+      name="description"
+      content="Veska – tworzymy profesjonalne strony internetowe dopasowane do potrzeb Twojego biznesu. Responsywne, SEO-friendly i estetyczne projekty, które wyróżnią Twoją markę w sieci. Skontaktuj się i zwiększ swoją widoczność online!"
+    />
+
+    <link rel="icon" href="/favicon.ico" />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Rubik"
+    />
+  </head>
+  <body>
+    <Navbar />
+    <Hero />
+    <div class="main">
+      <WhyNeedSite />
+      <WhyUs />
+      <Cooperation />
+      <Contact />
+    </div>
+  </body>
+</html>
+
+
+<style>
+  body {
+    margin: 0;
+  }
+  .main {
+    padding: 0 15%;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .main {
+      padding: 0 0;
+    }
+  }
+</style>

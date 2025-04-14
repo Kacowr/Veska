@@ -1,0 +1,114 @@
+---
+import logo from "./../images/Group 25.svg";
+import "./Navbar.scss";
+---
+
+<div class="navbar">
+  <img src={logo.src} alt="logo" />
+  <div class="navbar-links">
+    <a href="#dlaczego-potrzebuje-strony" class="navbar-link"
+      >Dlaczego potrzebuję strony?</a
+    >
+    <a href="#dlaczego-wlasnie-my" class="navbar-link">Dlaczego właśnie my?</a>
+    <a href="#jak-wyglada-wspolpraca" class="navbar-link"
+      >Jak wygląda współpraca</a
+    >
+    <a href="#kontakt" class="navbar-link">Kontakt</a>
+  </div>
+</div>
+
+<script>
+  import { gsap } from "gsap";
+
+  let disabledScrollEvent = false;
+
+  const links = document.querySelectorAll(".navbar-link");
+
+  const sections = [
+    document.querySelector("#dlaczego-potrzebuje-strony"),
+    document.querySelector("#dlaczego-wlasnie-my"),
+    document.querySelector("#jak-wyglada-wspolpraca"),
+    document.querySelector("#kontakt"),
+  ];
+
+  links.forEach((link, index) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      disabledScrollEvent = true;
+
+      // Remove 'navbar-link-current' class from all links
+      links.forEach((l) => {
+        l.classList.remove("navbar-link-current");
+        gsap.set(l, { "--navbar-after-width": 0 });
+      });
+
+      // Add 'navbar-link-current' class to the clicked link
+      // @ts-ignore
+      event.currentTarget.classList.add("navbar-link-current");
+      gsap.to(event.currentTarget, {
+        "--navbar-after-width": "100%",
+        duration: 0.3,
+      });
+
+      const section = sections[index];
+      section?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+
+      gsap.to(window, {
+        duration: 0.5,
+        onComplete: () => {
+          disabledScrollEvent = false;
+        },
+      });
+    });
+  });
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (disabledScrollEvent) return;
+
+      const sectionGetRects = sections.map((section) =>
+        section?.getBoundingClientRect()
+      );
+
+      let currentIndex = -1;
+      let currentSection: DOMRect;
+
+      sectionGetRects.forEach((section, index) => {
+        if (!section) return;
+
+        if (
+          section.y >= 0 &&
+          section.y <= window.innerHeight - window.innerHeight / 4 &&
+          window.innerHeight >= section.y
+        ) {
+          if (currentIndex === -1 || section.y < currentSection.y) {
+            currentIndex = index;
+            currentSection = section;
+          }
+        }
+      });
+
+      if (currentIndex !== -1) {
+        links.forEach((link, index) => {
+          if (index === currentIndex) {
+            link.classList.add("navbar-link-current");
+            gsap.to(link, { "--navbar-after-width": "100%", duration: 0.3 });
+          } else {
+            link.classList.remove("navbar-link-current");
+            gsap.to(link, { "--navbar-after-width": 0, duration: 0.3 });
+          }
+        });
+      } else {
+        links.forEach((link) => {
+          link.classList.remove("navbar-link-current");
+          gsap.to(link, { "--navbar-after-width": 0, duration: 0.3 });
+        });
+      }
+    },
+    false
+  );
+</script>

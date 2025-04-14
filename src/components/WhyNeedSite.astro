@@ -1,0 +1,82 @@
+---
+import "./WhyNeedSite.scss";
+import blob from "./../images/Ellipse 7.svg";
+import laptop from "./../images/g8.svg";
+---
+
+<div class="whyneedsite" id="dlaczego-potrzebuje-strony">
+  <div class="whyneedsite-details">
+    <div class="whyneedsite-left">
+      <h1 class="whyneedsite-left-heading">Dlaczego potrzebuję strony?</h1>
+      <p class="whyneedsite-left-text">
+        W dzisiejszym świecie, gdzie nowoczesne technologie przenikają każdą
+        sferę życia, internet jest podstawowym źródłem informacji. Strona
+        internetowa <strong>zwiększa widoczność</strong> Twojej firmy, ułatwia pozyskanie
+        <strong>nowych klientów</strong> oraz usprawnia komunikację z obecnymi. To
+        również sposób na
+        <strong>budowanie silnej marki</strong> i zdobywanie zaufania kontrahentów.
+        Dzięki profesjonalnej stronie WWW wyróżnisz się na tle konkurencji i zyskasz
+        przewagę na rynku.
+      </p>
+    </div>
+    <div class="whyneedsite-right">
+      <img src={blob.src} class="whyneedsite-right-blob" alt="blob" />
+      <img class="whyneedsite-right-laptop" src={laptop.src} alt="blob" />
+    </div>
+  </div>
+</div>
+
+<div class="whyneedsite-mobile">
+  <img class="whyneedsite-mobile-image" src={blob.src} alt="blob" />
+  <h1 class="whyneedsite-mobile-title">Dlaczego potrzebuję strony?</h1>
+  <p class="whyneedsite-mobile-text">
+    W dzisiejszym świecie, gdzie nowoczesne technologie przenikają każdą sferę
+    życia, internet jest podstawowym źródłem informacji. Strona internetowa <strong
+      >zwiększa widoczność</strong
+    > Twojej firmy, ułatwia pozyskanie
+    <strong>nowych klientów</strong> oraz usprawnia komunikację z obecnymi. To również
+    sposób na
+    <strong>budowanie silnej marki</strong> i zdobywanie zaufania kontrahentów. Dzięki
+    profesjonalnej stronie WWW wyróżnisz się na tle konkurencji i zyskasz przewagę
+    na rynku.
+  </p>
+</div>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const tl = gsap.timeline();
+
+  gsap.from(".whyneedsite-right-blob", {
+    // opacity:0,
+    rotate: "360deg",
+    duration: 10,
+    ease: "none",
+    repeat: -1,
+  });
+  gsap.from(".whyneedsite-right-laptop", {
+    scrollTrigger: ".whyneedsite-right-laptop",
+    opacity: 0,
+    y: "-2rem",
+    duration: 1,
+  });
+
+  gsap.from(".whyneedsite-left-heading", {
+    scrollTrigger: ".whyneedsite-left-heading",
+    opacity: 0,
+    x: "-2rem",
+    duration: 0.5,
+  });
+  gsap.from(".whyneedsite-left-text", {
+    scrollTrigger: ".whyneedsite-left-heading",
+    delay: 0.5,
+    opacity: 0,
+    y: "-2rem",
+    duration: 1,
+  });
+
+  tl.play();
+</script>

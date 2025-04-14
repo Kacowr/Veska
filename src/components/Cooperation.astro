@@ -1,0 +1,229 @@
+---
+import "./Cooperation.scss";
+---
+
+<div class="cooperation" id="jak-wyglada-wspolpraca">
+  <h1 class="cooperation-heading">Jak wygląda współpraca?</h1>
+  <div class="cooperation-timeline">
+    <div class="cooperation-timeline-left">
+      <div class="cooperation-timeline-left-content">
+        <div class="cooperation-timeline-left-content-details first-text">
+          <h1>Rozmowa wstępna</h1>
+          <p>
+            Rozpoczynamy współpracę od rozmowy, podczas której omawiamy wizję
+            projektu, funkcjonalności i potrzeby, a następnie przedstawiamy
+            wstępną wycenę.
+          </p>
+        </div>
+        <div class="cooperation-timeline-left-content-number first-number">
+          1
+        </div>
+      </div>
+      <div class="cooperation-timeline-left-content">
+        <div class="cooperation-timeline-left-content-details third-text">
+          <h1>Zakończenie projektu</h1>
+          <p>
+            Po zakończeniu prac przekazujemy gotowy projekt, dbając o to, by w
+            pełni odpowiadał Twoim potrzebom i wymaganiom.
+          </p>
+        </div>
+        <div class="cooperation-timeline-left-content-number third-number">
+          3
+        </div>
+      </div>
+    </div>
+    <div class="cooperation-timeline-line">
+      <div class="cooperation-timeline-line-line"></div>
+      <div class="cooperation-timeline-line-circle first-dot"></div>
+      <div class="cooperation-timeline-line-circle second-dot"></div>
+      <div class="cooperation-timeline-line-circle third-dot"></div>
+      <div class="cooperation-timeline-line-circle fourth-dot"></div>
+    </div>
+    <div class="cooperation-timeline-right">
+      <div class="cooperation-timeline-right-content">
+        <div class="cooperation-timeline-right-content-number second-number">
+          2
+        </div>
+        <div class="cooperation-timeline-right-content-details second-text">
+          <h1>Konsultacje z klientem</h1>
+          <p>
+            Regularnie prezentujemy postępy, omawiamy wprowadzenie ewentualnych
+            poprawek i dostosowujemy projekt do Twoich oczekiwań.
+          </p>
+        </div>
+      </div>
+      <div class="cooperation-timeline-right-content">
+        <div class="cooperation-timeline-right-content-number fourth-number">
+          4
+        </div>
+        <div class="cooperation-timeline-right-content-details fourth-text">
+          <h1>Wsparcie</h1>
+          <p>
+            Po realizacji projektu monitorujemy jego działanie i służymy pomocą
+            w razie pytań, modyfikacji lub nowych wyzwań.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cooperation-mobile">
+  <h1 class="cooperation-mobile-heading">Jak wygląda współpraca?</h1>
+  <div class="cooperation-mobile-timeline">
+    <div class="cooperation-mobile-timeline-line">
+      <div class="cooperation-mobile-timeline-line-line"></div>
+      <div class="cooperation-mobile-timeline-line-circle first-dot"></div>
+      <div class="cooperation-mobile-timeline-line-circle second-dot"></div>
+      <div class="cooperation-mobile-timeline-line-circle third-dot"></div>
+      <div class="cooperation-mobile-timeline-line-circle fourth-dot"></div>
+    </div>
+    <div class="cooperation-mobile-timeline-right">
+      <div class="cooperation-mobile-timeline-right-content">
+        <div
+          class="cooperation-mobile-timeline-right-content-number first-number"
+        >
+          1
+        </div>
+        <div
+          class="cooperation-mobile-timeline-right-content-details first-text"
+        >
+          <h1>Rozmowa wstępna</h1>
+          <p>
+            Rozpoczynamy współpracę od rozmowy, podczas której omawiamy wizję
+            projektu, funkcjonalności i potrzeby, a następnie przedstawiamy
+            wstępną wycenę.
+          </p>
+        </div>
+      </div>
+      <div class="cooperation-mobile-timeline-right-content">
+        <div
+          class="cooperation-mobile-timeline-right-content-number second-number"
+        >
+          2
+        </div>
+        <div
+          class="cooperation-mobile-timeline-right-content-details second-text"
+        >
+          <h1>Konsultacje z klientem</h1>
+          <p>
+            Regularnie prezentujemy postępy, omawiamy wprowadzenie ewentualnych
+            poprawek i dostosowujemy projekt do Twoich oczekiwań.
+          </p>
+        </div>
+      </div>
+      <div class="cooperation-mobile-timeline-right-content">
+        <div
+          class="cooperation-mobile-timeline-right-content-number third-number"
+        >
+          3
+        </div>
+        <div
+          class="cooperation-mobile-timeline-right-content-details third-text"
+        >
+          <h1>Zakończenie projektu</h1>
+          <p>
+            Po zakończeniu prac przekazujemy gotowy projekt, dbając o to, by w
+            pełni odpowiadał Twoim potrzebom i wymaganiom.
+          </p>
+        </div>
+      </div>
+      <div class="cooperation-mobile-timeline-right-content">
+        <div
+          class="cooperation-mobile-timeline-right-content-number fourth-number"
+        >
+          4
+        </div>
+        <div
+          class="cooperation-mobile-timeline-right-content-details fourth-text"
+        >
+          <h1>Wsparcie</h1>
+          <p>
+            Po realizacji projektu monitorujemy jego działanie i służymy pomocą
+            w razie pytań, modyfikacji lub nowych wyzwań.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // ====================================
+  //          DESKTOP ANIMATIONS
+  // ====================================
+  gsap.from(".cooperation-heading", {
+    scrollTrigger: ".cooperation",
+    opacity: 0,
+    y: -50,
+    // duration: 1
+  });
+  gsap.from(".cooperation-timeline-line-line", {
+    scrollTrigger: ".cooperation",
+    opacity: 0,
+    height: 0,
+    y: -50,
+    duration: 1.2,
+    delay: 0.5,
+  });
+  gsap.from(".cooperation-timeline-line-circle", {
+    scrollTrigger: ".cooperation",
+    opacity: 0,
+    y: -25,
+    stagger: 0.3,
+    // duration: .3,
+    delay: 0.5,
+  });
+  gsap.from(".cooperation-timeline-right-content", {
+    scrollTrigger: ".cooperation",
+    delay: 0.8,
+    stagger: 0.4,
+    opacity: 0,
+    x: 50,
+  });
+  gsap.from(".cooperation-timeline-left-content", {
+    scrollTrigger: ".cooperation",
+    delay: 0.65,
+    stagger: 0.4,
+    opacity: 0,
+    x: -50,
+  });
+
+  // ====================================
+  //          MOBILE ANIMATIONS
+  // ====================================
+  gsap.from(".cooperation-mobile-heading", {
+    scrollTrigger: ".cooperation-mobile",
+    opacity: 0,
+    y: -50,
+    // duration: 1
+  });
+  gsap.from(".cooperation-mobile-timeline-line-line", {
+    scrollTrigger: ".cooperation-mobile",
+    opacity: 0,
+    height: 0,
+    y: -50,
+    duration: 1.2,
+    delay: 0.5,
+  });
+  gsap.from(".cooperation-mobile-timeline-line-circle", {
+    scrollTrigger: ".cooperation-mobile",
+    opacity: 0,
+    y: -25,
+    stagger: 0.3,
+    // duration: .3,
+    delay: 0.5,
+  });
+  gsap.from(".cooperation-mobile-timeline-right-content", {
+    scrollTrigger: ".cooperation-mobile",
+    delay: 0.8,
+    stagger: 0.4,
+    opacity: 0,
+    x: 50,
+  });
+</script>

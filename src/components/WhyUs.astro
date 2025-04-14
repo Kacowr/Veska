@@ -1,0 +1,124 @@
+---
+import "./WhyUs.scss";
+---
+
+<div class="whyus" id="dlaczego-wlasnie-my">
+  <h1>Dlaczego własnie my?</h1>
+  <div class="whyus-details">
+    <div class="whyus-side whyus-left">
+      <h2 class="whyus-side-heading">Transparentność</h2>
+      <hr />
+      <p>
+        Wiemy, jak ważna jest dobra komunikacja, dlatego dbamy o regularny
+        kontakt z klientem. Na każdym etapie projektu prezentujemy bieżące
+        postępy, omawiamy sugerowane zmiany oraz informujemy o dalszych
+        działaniach. Dzięki temu masz pełną kontrolę nad projektem i realny
+        wpływ na jego rozwój.
+      </p>
+    </div>
+
+    <div class="whyus-middle">
+      <h2 class="whyus-middle-heading">Innowacyjne Rozwiązania</h2>
+      <hr />
+      <p>
+        Każdy projekt realizujemy z myślą o Twoich indywidualnych potrzebach i
+        wymaganiach, dbając o nowoczesny design, najwyższą jakość i
+        funkcjonalność. Nasza praca opiera się na połączeniu kreatywności,
+        innowacyjnych rozwiązań oraz dbałości o szczegóły. Współpracując z nami,
+        możesz być pewien, że Twoje pomysły zostaną zrealizowane w sposób
+        profesjonalny i efektywny.
+      </p>
+    </div>
+    <div class="whyus-side whyus-right">
+      <h2 class="whyus-side-heading">Zgrany Zespół</h2>
+      <hr />
+      <p>
+        Wybierając współpracę z nami, wybierasz ludzi odpowiedzialnych i
+        zdyscyplinowanych. Pracujemy z pasją oraz chęcią oddania klientowi jak
+        najlepszego produktu. Jesteśmy zaangażowani w każdy projekt, co pozwala
+        nam tworzyć rozwiązania dopasowane do indywidualnych potrzeb.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="whyus-mobile">
+  <h1>Dlaczego własnie my?</h1>
+  <div class="whyus-mobile-details" id="scroll">
+    <div class="whyus-mobile-side">
+      <h2 class="whyus-mobile-side-heading">Transparentność</h2>
+      <hr />
+      <p>
+        Dbamy o regularny kontakt z klientem, prezentując postępy prac,
+        omawiając proponowane zmiany i planując dalsze działania, abyś zawsze
+        miał pełną kontrolę nad projektem i jego rozwojem.
+      </p>
+    </div>
+
+    <div class="whyus-mobile-middle">
+      <h2 class="whyus-mobile-middle-heading">Innowacyjne Rozwiązania</h2>
+      <hr />
+      <p>
+        Każdy projekt realizujemy z dbałością o indywidualne potrzeby klientów,
+        łącząc najwyższą jakość, nowoczesny design, kreatywność oraz dbałość o
+        najmniejsze szczegóły.
+      </p>
+    </div>
+    <div class="whyus-mobile-side">
+      <h2 class="whyus-mobile-side-heading">Zgrany Zespół</h2>
+      <hr />
+      <p>
+        Nasz odpowiedzialny i zaangażowany zespół pracuje z pasją i
+        determinacją, aby dostarczać rozwiązania w pełni dostosowane do Twoich
+        potrzeb i oczekiwań.
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const tl = gsap.timeline({ scrollTrigger: ".whyus" });
+
+  tl.from(".whyus > h1", {
+    delay: 0.25,
+    y: -25,
+    opacity: 0,
+  })
+    .from(".whyus-middle", {
+      y: -50,
+      duration: 0.5,
+      opacity: 0,
+    })
+    .from(".whyus-left", {
+      x: 400,
+      // height: 600,
+      opacity: 0,
+      scale: 6 / 5,
+      duration: 2,
+      ease: "expo",
+    })
+    .from(
+      ".whyus-right",
+      {
+        x: -400,
+        opacity: 0,
+        scale: 6 / 5,
+        duration: 2,
+        ease: "expo",
+      },
+      "<"
+    );
+  document.getElementById("scroll")?.scrollTo({
+    top: 0,
+    left:
+      document.getElementById("scroll")?.offsetWidth! * 0.05 +
+      320 +
+      70 -
+      (document.getElementById("scroll")?.offsetWidth! - 295) / 2,
+  });
+</script>
