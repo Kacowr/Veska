@@ -5,9 +5,9 @@ import envelope from "./../images/envelope.svg";
 ---
 
 <div class="contact" id="kontakt">
-  <div class="contact-left">
-    <h2 class="contact-left-heading">Napisz do nas!</h2>
-    <p class="contact-left-text">
+  <div class="contact-info">
+    <h2 class="contact-info-heading">Napisz do nas!</h2>
+    <p class="contact-info-text">
       Chcesz stworzyć nową stronę internetową lub odświeżyć istniejącą witrynę?
       Jesteśmy tu, aby pomóc! Z pasją realizujemy projekty związane z tworzeniem
       stron internetowych i aplikacji webowych. Jeśli masz jakiekolwiek pytania,
@@ -17,107 +17,51 @@ import envelope from "./../images/envelope.svg";
       Twojego projektu. Możesz skontaktować się z nami za pomocą poniższych
       danych kontaktowych:
     </p>
-    <div class="contact-left-contactdetails">
+    <div class="contact-info-contactdetails">
       <img src={envelope.src} alt="koperta" />
       <p>kontakt@veska.dev</p>
     </div>
-    <div class="contact-left-contactdetails">
+    <div class="contact-info-contactdetails">
       <img src={phone.src} alt="telefon" />
       <p>+49 420 420 420</p>
     </div>
   </div>
-  <div class="contact-right">
-    <form method="POST" class="contact-right-form">
-      <p class="contact-right-label">Imię</p>
+  <div class="contact-formbox">
+    <form method="POST" class="contact-formbox-form">
+      <p class="contact-formbox-label">Imię</p>
       <input
-        class="contact-right-input"
+        class="contact-formbox-input"
         type="text"
         placeholder="Jan"
         name="name"
         required
       />
-      <p class="contact-right-label">E-Mail</p>
+      <p class="contact-formbox-label">E-Mail</p>
       <input
-        class="contact-right-input"
+        class="contact-formbox-input"
         type="email"
         placeholder="jan@poczta.pl"
         name="email"
         required
       />
-      <p class="contact-right-label">Telefon</p>
+      <p class="contact-formbox-label">Telefon</p>
       <input
-        class="contact-right-input"
+        class="contact-formbox-input"
         type="tel"
         placeholder="+48 000 000 000"
         name="tel"
         required
       />
-      <p class="contact-right-label">Twoja wiadomość</p>
+      <p class="contact-formbox-label">Twoja wiadomość</p>
       <textarea
-        class="contact-right-input"
+        class="contact-formbox-input"
         rows="10"
         name="message"
         placeholder="Cześć, ..."
         required></textarea>
-      <input class="contact-right-submit" type="submit" value="Wyślij" />
+      <input class="contact-formbox-submit" type="submit" value="Wyślij" />
     </form>
   </div>
-</div>
-
-<div class="contact-mobile">
-  <h2 class="contact-mobile-heading">Napisz do nas!</h2>
-  <p class="contact-mobile-text">
-    Chcesz stworzyć nową stronę internetową lub odświeżyć istniejącą witrynę?
-    Jesteśmy tu, aby pomóc! Z pasją realizujemy projekty związane z tworzeniem
-    stron internetowych i aplikacji webowych. Jeśli masz jakiekolwiek pytania,
-    potrzebujesz pomocy lub chcesz uzyskać więcej informacji na temat możliwej
-    współpracy, jesteśmy do Twojej dyspozycji. Z przyjemnością odpowiemy na
-    wszystkie pytania i doradzimy, aby znaleźć najlepsze rozwiązanie dla Twojego
-    projektu. Możesz skontaktować się z nami za pomocą poniższych danych
-    kontaktowych:
-  </p>
-  <div class="contact-mobile-contactdetails">
-    <img src={envelope.src} alt="koperta" />
-    <p>contact@veska.dev</p>
-  </div>
-  <div class="contact-mobile-contactdetails">
-    <img src={phone.src} alt="telefon" />
-    <p>+43 67763410623</p>
-  </div>
-  <form method="POST" class="contact-mobile-form">
-    <p class="contact-mobile-label">Imię</p>
-    <input
-      class="contact-mobile-input"
-      type="text"
-      placeholder="Jan Kowalski"
-      name="name"
-      required
-    />
-    <p class="contact-mobile-label">E-Mail</p>
-    <input
-      class="contact-mobile-input"
-      type="email"
-      placeholder="jan.kowalski@gmail.com"
-      name="email"
-      required
-    />
-    <p class="contact-mobile-label">Telefon</p>
-    <input
-      class="contact-mobile-input"
-      type="tel"
-      placeholder="+48 123 456 789"
-      name="tel"
-      required
-    />
-    <p class="contact-mobile-label">Twoja wiadomość</p>
-    <textarea
-      class="contact-mobile-input"
-      rows="10"
-      name="message"
-      placeholder="Cześć, ..."
-      required></textarea>
-    <input class="contact-mobile-submit" type="submit" value="Wyślij" />
-  </form>
 </div>
 
 <script is:inline>
