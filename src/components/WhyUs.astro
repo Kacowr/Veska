@@ -3,7 +3,7 @@ import "./WhyUs.scss";
 ---
 
 <div class="whyus" id="dlaczego-wlasnie-my">
-  <h1>Dlaczego własnie my?</h1>
+  <h2>Dlaczego własnie my?</h2>
   <div class="whyus-details">
     <div class="whyus-side whyus-left">
       <h2 class="whyus-side-heading">Transparentność</h2>
@@ -43,7 +43,7 @@ import "./WhyUs.scss";
 </div>
 
 <div class="whyus-mobile">
-  <h1>Dlaczego własnie my?</h1>
+  <h2>Dlaczego własnie my?</h2>
   <div class="whyus-mobile-details" id="scroll">
     <div class="whyus-mobile-side">
       <h2 class="whyus-mobile-side-heading">Transparentność</h2>
@@ -84,7 +84,7 @@ import "./WhyUs.scss";
 
   const tl = gsap.timeline({ scrollTrigger: ".whyus" });
 
-  tl.from(".whyus > h1", {
+  tl.from(".whyus > h2", {
     delay: 0.25,
     y: -25,
     opacity: 0,

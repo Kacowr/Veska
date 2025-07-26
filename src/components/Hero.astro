@@ -20,29 +20,27 @@ import "./../components/Hero.scss";
 </div>
 
 <script>
-import { gsap } from "gsap";
-  
+  import { gsap } from "gsap";
+
   const tl = gsap.timeline();
 
-  tl
-    .from('.hero-title', {
-    y: '-1rem',
-    opacity: .1,
-    scale: '.5',
-    duration: .3,
+  tl.from(".hero-title", {
+    y: "-1rem",
+    opacity: 0.1,
+    scale: ".5",
+    duration: 0.3,
   })
-  .from('.hero-subtitle', {
-    y: '-2rem',
-    opacity: 0,
-    duration: .5,
-
-  })
-    .to('.hero-button', {
-    y: '0',
-    scale:1,
-    duration: .3
-  })
-  .from('.hero-squares', {opacity: 0, duration: 2})
-  .to('.hero-squares', {y: -97, ease: 'none', duration: 10, repeat: -1})
+    .from(".hero-subtitle", {
+      y: "-2rem",
+      opacity: 0,
+      duration: 0.5,
+    })
+    .to(".hero-button", {
+      y: "0",
+      scale: 1,
+      duration: 0.3,
+    })
+    .from(".hero-squares", { opacity: 0, duration: 2 })
+    .to(".hero-squares", { y: -97, ease: "none", duration: 10, repeat: -1 });
   tl.play();
 </script>
