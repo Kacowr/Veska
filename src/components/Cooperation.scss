@@ -2,15 +2,12 @@
     height: 1000px;
     padding-top: 5rem;
 
-    &-mobile{
-        display: none;
-    }
-
     &-heading{
         font-weight: 600;
         font-size: 48px;
         color: #1B2F63;
         padding-bottom: 7rem;
+        text-align: center;
     }
 
     &-timeline{
@@ -24,16 +21,16 @@
             display: flex;
             flex-direction: column;
             width: 45%;
-            gap:80px;
+            gap: 80px;
 
             &-content{
                 display: flex;
                 flex-direction: row;
-                gap:30px;
+                gap: 30px;
 
                 &-details{
                     height: 150px;
-                    h2{
+                    h1, h2{
                         font-size: 32px;
                         font-weight: 600;
                         text-align: right;
@@ -63,16 +60,21 @@
             display: flex;
             flex-direction: column;
             width: 45%;
-            gap:80px;
+            gap: 80px;
+
+            // Hide mobile items on desktop
+            .mobile-item {
+                display: none;
+            }
 
             &-content{
                 display: flex;
                 flex-direction: row;
-                gap:30px;
+                gap: 30px;
 
                 &-details{
                     height: 150px;
-                    h2{
+                    h1, h2{
                         font-size: 32px;
                         font-weight: 600;
                         text-align: left;
@@ -93,7 +95,7 @@
                 }
             }
 
-            &-content:nth-of-type(1){
+            &-content:nth-of-type(2){
                 margin-top: 180px;
             }
         }
@@ -104,7 +106,9 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap:80px;
+            gap: 80px;
+            height: auto;
+            
             &-line{
                 position: absolute;
                 height: 100%;
@@ -129,9 +133,10 @@
     }
 }
 
+// Color classes for timeline steps
 .first{
     &-text{
-        h2{
+        h1, h2{
             color: #215690;
         }
     
@@ -152,7 +157,7 @@
 
 .second{
     &-text{
-        h2{
+        h1, h2{
             color: #394390;
         }
     
@@ -172,7 +177,7 @@
 
 .third{
     &-text{
-        h2{
+        h1, h2{
             color: #51308F;
         }
     
@@ -192,7 +197,7 @@
 
 .fourth{
     &-text{
-        h2{
+        h1, h2{
             color: #691D8F
         }
     
@@ -210,183 +215,84 @@
     }
 }
 
-@media screen and (max-width:1200px){
+@media screen and (max-width: 1200px){
     .cooperation{
-        display: none;
+        height: 1100px;
+        padding: 5rem 5% 0;
         overflow: hidden;
-        &-mobile{
-            display: block;
-            height: 1100px;
-            padding-top:5rem;
-            padding-left: 5%;
-            padding-right: 5%;
-            overflow:hidden;
 
-            &-heading{
-                font-weight: 600;
-                font-size: 28px;
-                color: #1B2F63;
-                padding-bottom: 3rem;
+        &-heading{
+            font-size: 28px;
+            padding-bottom: 3rem;
+        }
+
+        &-timeline{
+            height: 700px;
+
+            &-left{
+                display: none; // Hide left side on mobile
             }
 
-            &-timeline{
-                display: flex;
-                flex-direction: row;
-                justify-content: flex-start;
-                width: 100%;
-                height: 700px;
+            &-right{
+                width: 90%;
+                gap: 50px;
 
-                &-right{
+                // Show mobile items on mobile
+                .mobile-item {
                     display: flex;
-                    flex-direction: column;
-                    width: 90%;
-                    gap:50px;
-        
-                    &-content{
-                        display: flex;
-                        flex-direction: row;
-                        height: 150px;
-        
-                        &-details{
-                            padding-left: 1rem;
-                            h2{
-                                font-size: 20px;
-                                font-weight: 600;
-                                text-align: left;
-                                padding-bottom: 0.5rem;
-                            }
-        
-                            p{
-                                text-align: left;
-                                font-size: 14px;
-                                line-height: 140%;
-                                letter-spacing: 0.18px;
-                            }
+                }
+    
+                &-content{
+                    height: 150px;
+    
+                    &-details{
+                        padding-left: 1rem;
+                        h1, h2{
+                            font-size: 20px;
+                            text-align: left;
                         }
-        
-                        &-number{
-                            font-size: 64px;
-                            font-weight: 600;
-                            padding-left: 1rem;
+    
+                        p{
+                            font-size: 14px;
+                            text-align: left;
                         }
                     }
-
-                    &-content:nth-of-type(1){
-                        margin-top: 20px;
+    
+                    &-number{
+                        font-size: 64px;
+                        padding-left: 1rem;
                     }
                 }
 
+                &-content:nth-of-type(1){
+                    margin-top: 20px;
+                }
+
+                // Reset margin for mobile
+                &-content:nth-of-type(2){
+                    margin-top: 0;
+                }
+            }
+
+            &-line{
+                //height: 750px;
+                gap: 165px;
+
                 &-line{
-                    width: 10%;
-                    position: relative;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 147px;
-        
-                    &-line{
-                        position: absolute;
-                        height: 100%;
-                        margin-left: auto;
-                        margin-right: auto;
-                        left: 0;
-                        right: 0;
-                        width: 10px;
-                        background: linear-gradient(to bottom, rgb(9,105,144), rgb(129,10,143));
-                    }
-        
-                    &-circle{
-                        height: 35px;
-                        width: 35px;
-                        background-color: #bbb;
-                        border-radius: 50%;
-                        display: inline-block;
-                        z-index: 10;
-                        border: 5px solid white;
-                    }
+                    height: 750px;
+                }
+    
+                &-circle{
+                    height: 35px;
+                    width: 35px;
                 }
             }
         }
     }
 
     .first{
-        &-text{
-            h2{
-                color: #215690;
-            }
-        
-            p{
-                color: #215690;
-            }
-        }
-    
-        &-number{
-            color: #215690;
-        }
-    
         &-dot{
-            background-color: #215690;
             margin-top: 35px;
-        }
-    }
-    
-    .second{
-        &-text{
-            h2{
-                color: #394390;
-            }
-        
-            p{
-                color: #394390;
-            }
-        }
-    
-        &-number{
-            color: #394390;
-        }
-    
-        &-dot{
-            background-color: #394390;
-        }
-    }
-    
-    .third{
-        &-text{
-            h2{
-                color: #51308F;
-            }
-        
-            p{
-                color: #51308F
-            }
-        }
-    
-        &-number{
-            color: #51308F;
-        }
-    
-        &-dot{
-            background-color: #51308F;
-        }
-    }
-    
-    .fourth{
-        &-text{
-            h2{
-                color: #691D8F
-            }
-        
-            p{
-                color: #691D8F;
-            }
-        }
-    
-        &-number{
-            color: #691D8F;
-        }
-    
-        &-dot{
-            background-color: #691D8F;
         }
     }
 }
