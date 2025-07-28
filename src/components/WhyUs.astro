@@ -6,7 +6,7 @@ const t = Astro.props.t;
 
 <div class="whyus" id="dlaczego-wlasnie-my">
   <h2>{t('why-us.heading')}</h2>
-  <div class="whyus-details">
+  <div class="whyus-details" id="whyus-details"> {/* Added id here */}
     <div class="whyus-side whyus-left">
       <h3 class="whyus-side-heading">{t('why-us.transparency.heading')}</h3>
       <hr />
@@ -46,47 +46,62 @@ const t = Astro.props.t;
 
 <script>
   import { gsap } from "gsap";
-      import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-      gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger);
 
-      const tl = gsap.timeline({ scrollTrigger: ".whyus" });
+  const tl = gsap.timeline({
+    scrollTrigger: ".whyus",
+    onComplete: () => {
+      const element = document.getElementById("whyus-details");
 
-      tl.from(".whyus > h2", {
-          delay: 0.25,
-          y: -25,
-          opacity: 0,
-          })
-          .from(".whyus-middle", {
-          y: -50,
-          duration: 0.5,
-          opacity: 0,
-          })
-          .from(".whyus-left", {
-          x: 400,
-          // height: 600,
-          opacity: 0,
-          scale: 6 / 5,
-          duration: 2,
-          ease: "expo",
-          })
-          .from(
+      if (element) {
+        const hasOverflow = element.scrollWidth > element.clientWidth || element.scrollHeight > element.clientHeight;
+
+        if (hasOverflow) {
+          const centerX = (element.scrollWidth - element.clientWidth) / 2;
+
+          element.scrollTo({
+            left: centerX,
+            top: 0,
+            behavior: 'smooth'
+          });
+        } else {
+          console.log(`Element with ID "whyus-details" does not have overflow.`);
+        }
+      } else {
+        console.error(`Element with ID "whyus-details" not found.`);
+      }
+    }
+  });
+
+  tl.from(".whyus > h2", {
+    delay: 0.25,
+    y: -25,
+    opacity: 0,
+  })
+      .from(".whyus-middle", {
+        y: -50,
+        duration: 0.5,
+        opacity: 0,
+      })
+      .from(".whyus-left", {
+        x: 400,
+        opacity: 0,
+        scale: 6 / 5,
+        duration: 2,
+        ease: "expo",
+      })
+      .from(
           ".whyus-right",
           {
-              x: -400,
-              opacity: 0,
-              scale: 6 / 5,
-              duration: 2,
-              ease: "expo",
-              },
+            x: -400,
+            opacity: 0,
+            scale: 6 / 5,
+            duration: 2,
+            ease: "expo",
+          },
           "<"
-          );
-      document.getElementById("scroll")?.scrollTo({
-          top: 0,
-          left:
-              document.getElementById("scroll")?.offsetWidth! * 0.05 +
-                  320 +
-                  70 -
-                  (document.getElementById("scroll")?.offsetWidth! - 295) / 2,
-          });
+      );
+
 </script>
