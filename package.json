@@ -14,7 +14,6 @@
     "@astrojs/vercel": "^8.2.3",
     "@types/nodemailer": "^6.4.16",
     "astro": "^5.12.3",
-    "astro-i18n": "^2.2.4",
     "dotenv": "^16.4.5",
     "gsap": "^3.12.5",
     "mailersend": "^2.3.0",
