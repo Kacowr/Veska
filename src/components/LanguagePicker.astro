@@ -1,0 +1,48 @@
+---
+import { languages } from '../utils/i18n';
+import { getLangFromUrl } from '../utils/utils';
+import './LanguagePicker.scss';
+
+const currentLang = getLangFromUrl(Astro.url);
+---
+
+<ul class="language-picker">
+    {Object.entries(languages).map(([lang, label]) => (
+            <li  class:list={{ 'active': lang === currentLang }}>
+                <a href={`${lang}`}>{label}</a>
+            </li>
+    ))}
+</ul>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const languagePicker = document.querySelector('.language-picker');
+        const activeItem = languagePicker?.querySelector('.active');
+        let isOpen = false;
+
+        if (!languagePicker || !activeItem) return;
+
+        activeItem.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768 || 'ontouchstart' in window) {
+                e.preventDefault();
+                toggleDropdown();
+            }
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!languagePicker.contains(e.target) && isOpen) {
+                closeDropdown();
+            }
+        });
+
+        function toggleDropdown() {
+            isOpen = !isOpen;
+            languagePicker.classList.toggle('mobile-open', isOpen);
+        }
+
+        function closeDropdown() {
+            isOpen = false;
+            languagePicker.classList.remove('mobile-open');
+        }
+    });
+</script>

@@ -1,19 +1,23 @@
 ---
 import logo from "./../images/Group 25.svg";
 import "./Navbar.scss";
+
+const t = Astro.props.t;
 ---
 
 <div class="navbar">
   <img src={logo.src} alt="logo" />
   <div class="navbar-links">
     <a href="#dlaczego-potrzebuje-strony" class="navbar-link"
-      >Dlaczego potrzebuję strony?</a
+      >{t('nav.website')}</a
     >
-    <a href="#dlaczego-wlasnie-my" class="navbar-link">Dlaczego właśnie my?</a>
+    <a href="#dlaczego-wlasnie-my" class="navbar-link">
+      {t('nav.why-us')}
+    </a>
     <a href="#jak-wyglada-wspolpraca" class="navbar-link"
-      >Jak wygląda współpraca</a
+      >{t('nav.cooperate')}</a
     >
-    <a href="#kontakt" class="navbar-link">Kontakt</a>
+    <a href="#kontakt" class="navbar-link">{t('nav.contact')}</a>
   </div>
 </div>
 

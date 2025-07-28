@@ -1,19 +1,21 @@
 ---
 import "./../components/Hero.scss";
+
+const t = Astro.props.t;
 ---
 
 <div class="hero">
   <div class="hero-squares"></div>
   <div class="hero-details">
     <h1 class="hero-title">
-      Stworzymy stronę specjalnie<br /> dla potrzeb <span
-        class="hero-title-innerText">Twojej Firmy</span
-      >
+      {t('hero.title.part1')}<br /> {t('hero.title.part2')} <span
+        class="hero-title-innerText">{t('hero.title.highlight')}</span
+    >
     </h1>
     <p class="hero-subtitle">
-      Dopasowane rozwiązania dla rozwoju biznesu i widoczności w sieci
+      {t('hero.subtitle')}
     </p>
-    <a href="#kontakt" class="hero-button">Skontaktuj się!</a>
+    <a href="#kontakt" class="hero-button">{t('hero.button')}</a>
   </div>
   <div class="hero-gradient"></div>
   <div class="whyneedsite-gradient"></div>
@@ -22,25 +24,25 @@ import "./../components/Hero.scss";
 <script>
   import { gsap } from "gsap";
 
-  const tl = gsap.timeline();
+      const tl = gsap.timeline();
 
-  tl.from(".hero-title", {
-    y: "-1rem",
-    opacity: 0.1,
-    scale: ".5",
-    duration: 0.3,
-  })
-    .from(".hero-subtitle", {
-      y: "-2rem",
-      opacity: 0,
-      duration: 0.5,
-    })
-    .to(".hero-button", {
-      y: "0",
-      scale: 1,
-      duration: 0.3,
-    })
-    .from(".hero-squares", { opacity: 0, duration: 2 })
-    .to(".hero-squares", { y: -97, ease: "none", duration: 10, repeat: -1 });
-  tl.play();
+      tl.from(".hero-title", {
+          y: "-1rem",
+          opacity: 0.1,
+          scale: ".5",
+          duration: 0.3,
+          })
+          .from(".hero-subtitle", {
+          y: "-2rem",
+          opacity: 0,
+          duration: 0.5,
+          })
+          .to(".hero-button", {
+          y: "0",
+          scale: 1,
+          duration: 0.3,
+          })
+          .from(".hero-squares", { opacity: 0, duration: 2 })
+          .to(".hero-squares", { y: -97, ease: "none", duration: 10, repeat: -1 });
+      tl.play();
 </script>
