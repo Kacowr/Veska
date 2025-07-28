@@ -1,60 +1,44 @@
 ---
 import "./WhyUs.scss";
+
+const t = Astro.props.t;
 ---
 
 <div class="whyus" id="dlaczego-wlasnie-my">
-  <h2>Dlaczego własnie my?</h2>
+  <h2>{t('why-us.heading')}</h2>
   <div class="whyus-details">
     <div class="whyus-side whyus-left">
-      <h3 class="whyus-side-heading">Transparentność</h3>
+      <h3 class="whyus-side-heading">{t('why-us.transparency.heading')}</h3>
       <hr />
       <p class="desktop-text">
-        Wiemy, jak ważna jest dobra komunikacja, dlatego dbamy o regularny
-        kontakt z klientem. Na każdym etapie projektu prezentujemy bieżące
-        postępy, omawiamy sugerowane zmiany oraz informujemy o dalszych
-        działaniach. Dzięki temu masz pełną kontrolę nad projektem i realny
-        wpływ na jego rozwój.
+        {t('why-us.transparency.desktop')}
       </p>
 
       <p class="mobile-text">
-        Dbamy o regularny kontakt z klientem, prezentując postępy prac,
-        omawiając proponowane zmiany i planując dalsze działania, abyś zawsze
-        miał pełną kontrolę nad projektem i jego rozwojem.
+        {t('why-us.transparency.mobile')}
       </p>
     </div>
 
     <div class="whyus-middle">
-      <h3 class="whyus-middle-heading">Innowacyjne Rozwiązania</h3>
+      <h3 class="whyus-middle-heading">{t('why-us.solutions.heading')}</h3>
       <hr />
       <p class="desktop-text">
-        Każdy projekt realizujemy z myślą o Twoich indywidualnych potrzebach i
-        wymaganiach, dbając o nowoczesny design, najwyższą jakość i
-        funkcjonalność. Nasza praca opiera się na połączeniu kreatywności,
-        innowacyjnych rozwiązań oraz dbałości o szczegóły. Współpracując z nami,
-        możesz być pewien, że Twoje pomysły zostaną zrealizowane w sposób
-        profesjonalny i efektywny.
+        {t('why-us.solutions.desktop')}
       </p>
 
       <p class="mobile-text">
-        Każdy projekt realizujemy z dbałością o indywidualne potrzeby klientów,
-        łącząc najwyższą jakość, nowoczesny design, kreatywność oraz dbałość o
-        najmniejsze szczegóły.
+        {t('why-us.solutions.mobile')}
       </p>
     </div>
     <div class="whyus-side whyus-right">
-      <h3 class="whyus-side-heading">Zgrany Zespół</h3>
+      <h3 class="whyus-side-heading">{t('why-us.team.heading')}</h3>
       <hr />
       <p class="desktop-text">
-        Wybierając współpracę z nami, wybierasz ludzi odpowiedzialnych i
-        zdyscyplinowanych. Pracujemy z pasją oraz chęcią oddania klientowi jak
-        najlepszego produktu. Jesteśmy zaangażowani w każdy projekt, co pozwala
-        nam tworzyć rozwiązania dopasowane do indywidualnych potrzeb.
+        {t('why-us.team.desktop')}
       </p>
 
       <p class="mobile-text">
-        Nasz odpowiedzialny i zaangażowany zespół pracuje z pasją i
-        determinacją, aby dostarczać rozwiązania w pełni dostosowane do Twoich
-        potrzeb i oczekiwań.
+        {t('why-us.team.mobile')}
       </p>
     </div>
   </div>
@@ -62,47 +46,47 @@ import "./WhyUs.scss";
 
 <script>
   import { gsap } from "gsap";
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
+      import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-  gsap.registerPlugin(ScrollTrigger);
+      gsap.registerPlugin(ScrollTrigger);
 
-  const tl = gsap.timeline({ scrollTrigger: ".whyus" });
+      const tl = gsap.timeline({ scrollTrigger: ".whyus" });
 
-  tl.from(".whyus > h2", {
-    delay: 0.25,
-    y: -25,
-    opacity: 0,
-  })
-    .from(".whyus-middle", {
-      y: -50,
-      duration: 0.5,
-      opacity: 0,
-    })
-    .from(".whyus-left", {
-      x: 400,
-      // height: 600,
-      opacity: 0,
-      scale: 6 / 5,
-      duration: 2,
-      ease: "expo",
-    })
-    .from(
-      ".whyus-right",
-      {
-        x: -400,
-        opacity: 0,
-        scale: 6 / 5,
-        duration: 2,
-        ease: "expo",
-      },
-      "<"
-    );
-  document.getElementById("scroll")?.scrollTo({
-    top: 0,
-    left:
-      document.getElementById("scroll")?.offsetWidth! * 0.05 +
-      320 +
-      70 -
-      (document.getElementById("scroll")?.offsetWidth! - 295) / 2,
-  });
+      tl.from(".whyus > h2", {
+          delay: 0.25,
+          y: -25,
+          opacity: 0,
+          })
+          .from(".whyus-middle", {
+          y: -50,
+          duration: 0.5,
+          opacity: 0,
+          })
+          .from(".whyus-left", {
+          x: 400,
+          // height: 600,
+          opacity: 0,
+          scale: 6 / 5,
+          duration: 2,
+          ease: "expo",
+          })
+          .from(
+          ".whyus-right",
+          {
+              x: -400,
+              opacity: 0,
+              scale: 6 / 5,
+              duration: 2,
+              ease: "expo",
+              },
+          "<"
+          );
+      document.getElementById("scroll")?.scrollTo({
+          top: 0,
+          left:
+              document.getElementById("scroll")?.offsetWidth! * 0.05 +
+                  320 +
+                  70 -
+                  (document.getElementById("scroll")?.offsetWidth! - 295) / 2,
+          });
 </script>

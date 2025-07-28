@@ -2,21 +2,19 @@
 import "./WhyNeedSite.scss";
 import blob from "./../images/Ellipse 7.svg";
 import laptop from "./../images/g8.svg";
+
+const t = Astro.props.t;
 ---
 
 <div class="whyneedsite" id="dlaczego-potrzebuje-strony">
   <div class="whyneedsite-info">
-    <h2 class="whyneedsite-info-heading">Dlaczego potrzebuję strony?</h2>
+    <h2 class="whyneedsite-info-heading">{t('why-need-site.heading')}</h2>
     <p class="whyneedsite-info-text">
-      W dzisiejszym świecie, gdzie nowoczesne technologie przenikają każdą sferę
-      życia, internet jest podstawowym źródłem informacji. Strona internetowa <strong
-        >zwiększa widoczność</strong
-      > Twojej firmy, ułatwia pozyskanie
-      <strong>nowych klientów</strong> oraz usprawnia komunikację z obecnymi. To
-      również sposób na
-      <strong>budowanie silnej marki</strong> i zdobywanie zaufania kontrahentów.
-      Dzięki profesjonalnej stronie WWW wyróżnisz się na tle konkurencji i zyskasz
-      przewagę na rynku.
+      {t('why-need-site.text.part1')} <strong
+    >{t('why-need-site.text.strong1')}</strong
+    > {t('why-need-site.text.part2')}
+      <strong>{t('why-need-site.text.strong2')}</strong> {t('why-need-site.text.part3')}
+      <strong>{t('why-need-site.text.strong3')}</strong> {t('why-need-site.text.part4')}
     </p>
   </div>
   <div class="whyneedsite-foto">
@@ -27,39 +25,39 @@ import laptop from "./../images/g8.svg";
 
 <script>
   import { gsap } from "gsap";
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
+      import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-  gsap.registerPlugin(ScrollTrigger);
+      gsap.registerPlugin(ScrollTrigger);
 
-  const tl = gsap.timeline();
+      const tl = gsap.timeline();
 
-  gsap.from(".whyneedsite-foto-blob", {
-    // opacity:0,
-    rotate: "360deg",
-    duration: 10,
-    ease: "none",
-    repeat: -1,
-  });
-  gsap.from(".whyneedsite-foto-laptop", {
-    scrollTrigger: ".whyneedsite-foto-laptop",
-    opacity: 0,
-    y: "-2rem",
-    duration: 1,
-  });
+      gsap.from(".whyneedsite-foto-blob", {
+          // opacity:0,
+          rotate: "360deg",
+          duration: 10,
+          ease: "none",
+          repeat: -1,
+          });
+      gsap.from(".whyneedsite-foto-laptop", {
+          scrollTrigger: ".whyneedsite-foto-laptop",
+          opacity: 0,
+          y: "-2rem",
+          duration: 1,
+          });
 
-  gsap.from(".whyneedsite-info-heading", {
-    scrollTrigger: ".whyneedsite-info-heading",
-    opacity: 0,
-    x: "-2rem",
-    duration: 0.5,
-  });
-  gsap.from(".whyneedsite-info-text", {
-    scrollTrigger: ".whyneedsite-info-heading",
-    delay: 0.5,
-    opacity: 0,
-    y: "-2rem",
-    duration: 1,
-  });
+      gsap.from(".whyneedsite-info-heading", {
+          scrollTrigger: ".whyneedsite-info-heading",
+          opacity: 0,
+          x: "-2rem",
+          duration: 0.5,
+          });
+      gsap.from(".whyneedsite-info-text", {
+          scrollTrigger: ".whyneedsite-info-heading",
+          delay: 0.5,
+          opacity: 0,
+          y: "-2rem",
+          duration: 1,
+          });
 
-  tl.play();
+      tl.play();
 </script>

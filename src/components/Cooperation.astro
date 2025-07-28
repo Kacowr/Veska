@@ -1,18 +1,18 @@
 ---
 import "./Cooperation.scss";
+
+const t = Astro.props.t;
 ---
 
 <div class="cooperation" id="jak-wyglada-wspolpraca">
-  <h2 class="cooperation-heading">Jak wygląda współpraca?</h2>
+  <h2 class="cooperation-heading">{t('cooperation.heading')}</h2>
   <div class="cooperation-timeline">
     <div class="cooperation-timeline-left">
       <div class="cooperation-timeline-left-content">
         <div class="cooperation-timeline-left-content-details first-text">
-          <h2>Rozmowa wstępna</h2>
+          <h2>{t('cooperation.step1.title')}</h2>
           <p>
-            Rozpoczynamy współpracę od rozmowy, podczas której omawiamy wizję
-            projektu, funkcjonalności i potrzeby, a następnie przedstawiamy
-            wstępną wycenę.
+            {t('cooperation.step1.text')}
           </p>
         </div>
         <div class="cooperation-timeline-left-content-number first-number">
@@ -21,10 +21,9 @@ import "./Cooperation.scss";
       </div>
       <div class="cooperation-timeline-left-content">
         <div class="cooperation-timeline-left-content-details third-text">
-          <h2>Zakończenie projektu</h2>
+          <h2>{t('cooperation.step3.title')}</h2>
           <p>
-            Po zakończeniu prac przekazujemy gotowy projekt, dbając o to, by w
-            pełni odpowiadał Twoim potrzebom i wymaganiom.
+            {t('cooperation.step3.text')}
           </p>
         </div>
         <div class="cooperation-timeline-left-content-number third-number">
@@ -40,56 +39,47 @@ import "./Cooperation.scss";
       <div class="cooperation-timeline-line-circle fourth-dot"></div>
     </div>
     <div class="cooperation-timeline-right">
-      <!-- Mobile-only: Item 1 -->
       <div class="cooperation-timeline-right-content mobile-item">
         <div class="cooperation-timeline-right-content-number first-number">
           1
         </div>
         <div class="cooperation-timeline-right-content-details first-text">
-          <h2>Rozmowa wstępna</h2>
+          <h2>{t('cooperation.step1.title')}</h2>
           <p>
-            Rozpoczynamy współpracę od rozmowy, podczas której omawiamy wizję
-            projektu, funkcjonalności i potrzeby, a następnie przedstawiamy
-            wstępną wycenę.
+            {t('cooperation.step1.text')}
           </p>
         </div>
       </div>
-      <!-- Desktop Item 2 -->
       <div class="cooperation-timeline-right-content">
         <div class="cooperation-timeline-right-content-number second-number">
           2
         </div>
         <div class="cooperation-timeline-right-content-details second-text">
-          <h2>Konsultacje z klientem</h2>
+          <h2>{t('cooperation.step2.title')}</h2>
           <p>
-            Regularnie prezentujemy postępy, omawiamy wprowadzenie ewentualnych
-            poprawek i dostosowujemy projekt do Twoich oczekiwań.
+            {t('cooperation.step2.text')}
           </p>
         </div>
       </div>
-      <!-- Mobile-only: Item 3 -->
       <div class="cooperation-timeline-right-content mobile-item">
         <div class="cooperation-timeline-right-content-number third-number">
           3
         </div>
         <div class="cooperation-timeline-right-content-details third-text">
-          <h2>Zakończenie projektu</h2>
+          <h2>{t('cooperation.step3.title')}</h2>
           <p>
-            Po zakończeniu prac przekazujemy gotowy projekt, dbając o to, by w
-            pełni odpowiadał Twoim potrzebom i wymaganiom.
+            {t('cooperation.step3.text')}
           </p>
         </div>
       </div>
-      <!-- Desktop Item 4 -->
       <div class="cooperation-timeline-right-content">
         <div class="cooperation-timeline-right-content-number fourth-number">
           4
         </div>
         <div class="cooperation-timeline-right-content-details fourth-text">
-          <h2>Wsparcie</h2>
+          <h2>{t('cooperation.step4.title')}</h2>
           <p>
-            Po realizacji projektu monitorujemy jego działanie i służymy pomocą
-            w razie pytań, modyfikacji lub nowych wyzwań.
+            {t('cooperation.step4.text')}
           </p>
         </div>
       </div>
@@ -99,45 +89,45 @@ import "./Cooperation.scss";
 
 <script>
   import { gsap } from "gsap";
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
+      import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-  gsap.registerPlugin(ScrollTrigger);
+      gsap.registerPlugin(ScrollTrigger);
 
-  // ====================================
-  //          ANIMATIONS
-  // ====================================
-  gsap.from(".cooperation-heading", {
-    scrollTrigger: ".cooperation",
-    opacity: 0,
-    y: -50,
-  });
-  gsap.from(".cooperation-timeline-line-line", {
-    scrollTrigger: ".cooperation",
-    opacity: 0,
-    height: 0,
-    y: -50,
-    duration: 1.2,
-    delay: 0.5,
-  });
-  gsap.from(".cooperation-timeline-line-circle", {
-    scrollTrigger: ".cooperation",
-    opacity: 0,
-    y: -25,
-    stagger: 0.3,
-    delay: 0.5,
-  });
-  gsap.from(".cooperation-timeline-right-content", {
-    scrollTrigger: ".cooperation",
-    delay: 0.8,
-    stagger: 0.4,
-    opacity: 0,
-    x: 50,
-  });
-  gsap.from(".cooperation-timeline-left-content", {
-    scrollTrigger: ".cooperation",
-    delay: 0.65,
-    stagger: 0.4,
-    opacity: 0,
-    x: -50,
-  });
+      // ====================================
+      //          ANIMATIONS
+      // ====================================
+      gsap.from(".cooperation-heading", {
+          scrollTrigger: ".cooperation",
+          opacity: 0,
+          y: -50,
+          });
+      gsap.from(".cooperation-timeline-line-line", {
+          scrollTrigger: ".cooperation",
+          opacity: 0,
+          height: 0,
+          y: -50,
+          duration: 1.2,
+          delay: 0.5,
+          });
+      gsap.from(".cooperation-timeline-line-circle", {
+          scrollTrigger: ".cooperation",
+          opacity: 0,
+          y: -25,
+          stagger: 0.3,
+          delay: 0.5,
+          });
+      gsap.from(".cooperation-timeline-right-content", {
+          scrollTrigger: ".cooperation",
+          delay: 0.8,
+          stagger: 0.4,
+          opacity: 0,
+          x: 50,
+          });
+      gsap.from(".cooperation-timeline-left-content", {
+          scrollTrigger: ".cooperation",
+          delay: 0.65,
+          stagger: 0.4,
+          opacity: 0,
+          x: -50,
+          });
 </script>
