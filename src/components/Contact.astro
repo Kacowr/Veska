@@ -4,19 +4,19 @@ import phone from "./../images/phone.svg";
 import envelope from "./../images/envelope.svg";
 
 const t = Astro.props.t;
-const successMessage = Astro.props.t('contact.form.success');
-const errorMessage = Astro.props.t('contact.form.error');
+const successMessage = Astro.props.t("contact.form.success");
+const errorMessage = Astro.props.t("contact.form.error");
 ---
 
 <div class="contact" id="kontakt">
   <div class="contact-info">
-    <h2 class="contact-info-heading">{t('contact.heading')}</h2>
+    <h2 class="contact-info-heading">{t("contact.heading")}</h2>
     <p class="contact-info-text">
-      {t('contact.text')}
+      {t("contact.text")}
     </p>
     <div class="contact-info-contactdetails">
       <img src={envelope.src} alt="koperta" />
-      <p>contact@veska.dev</p>
+      <p>veskasolutions@gmail.com</p>
     </div>
     <div class="contact-info-contactdetails">
       <img src={phone.src} alt="telefon" />
@@ -25,38 +25,42 @@ const errorMessage = Astro.props.t('contact.form.error');
   </div>
   <div class="contact-formbox">
     <form method="POST" class="contact-formbox-form">
-      <p class="contact-formbox-label">{t('contact.form.name')}</p>
+      <p class="contact-formbox-label">{t("contact.form.name")}</p>
       <input
-          class="contact-formbox-input"
-          type="text"
-          placeholder={t('contact.form.placeholder.name')}
-          name="name"
-          required
+        class="contact-formbox-input"
+        type="text"
+        placeholder={t("contact.form.placeholder.name")}
+        name="name"
+        required
       />
-      <p class="contact-formbox-label">{t('contact.form.email')}</p>
+      <p class="contact-formbox-label">{t("contact.form.email")}</p>
       <input
-          class="contact-formbox-input"
-          type="email"
-          placeholder={t('contact.form.placeholder.email')}
-          name="email"
-          required
+        class="contact-formbox-input"
+        type="email"
+        placeholder={t("contact.form.placeholder.email")}
+        name="email"
+        required
       />
-      <p class="contact-formbox-label">{t('contact.form.phone')}</p>
+      <p class="contact-formbox-label">{t("contact.form.phone")}</p>
       <input
-          class="contact-formbox-input"
-          type="tel"
-          placeholder={t('contact.form.placeholder.phone')}
-          name="tel"
-          required
+        class="contact-formbox-input"
+        type="tel"
+        placeholder={t("contact.form.placeholder.phone")}
+        name="tel"
+        required
       />
-      <p class="contact-formbox-label">{t('contact.form.message')}</p>
+      <p class="contact-formbox-label">{t("contact.form.message")}</p>
       <textarea
-          class="contact-formbox-input"
-          rows="10"
-          name="message"
-          placeholder={t('contact.form.placeholder.message')}
-          required></textarea>
-      <input class="contact-formbox-submit" type="submit" value={t('contact.form.submit')} />
+        class="contact-formbox-input"
+        rows="10"
+        name="message"
+        placeholder={t("contact.form.placeholder.message")}
+        required></textarea>
+      <input
+        class="contact-formbox-submit"
+        type="submit"
+        value={t("contact.form.submit")}
+      />
     </form>
   </div>
 </div>
@@ -67,7 +71,7 @@ const errorMessage = Astro.props.t('contact.form.error');
   }
 </script>
 
-<script define:vars={{successMessage, errorMessage}}>
+<script define:vars={{ successMessage, errorMessage }}>
   async function sendForm(e) {
     e.preventDefault();
     const data = new FormData(e.target);
@@ -78,22 +82,18 @@ const errorMessage = Astro.props.t('contact.form.error');
 
     // console.log(parsedData);
     const res = await fetch(
-        "https://b3tksqsbg1.execute-api.eu-central-1.amazonaws.com/default/sendVeskaEmail",
-        { method: "POST", body: JSON.stringify(parsedData) }
+      "https://b3tksqsbg1.execute-api.eu-central-1.amazonaws.com/default/sendVeskaEmail",
+      { method: "POST", body: JSON.stringify(parsedData) }
     );
 
     const body = await res.json();
 
-    alert(
-        body.success === 1
-            ? successMessage
-            : errorMessage
-    );
+    alert(body.success === 1 ? successMessage : errorMessage);
   }
 
   document
-      .querySelector(".contact-formbox-form")
-      ?.addEventListener("submit", sendForm, false);
+    .querySelector(".contact-formbox-form")
+    ?.addEventListener("submit", sendForm, false);
 </script>
 
 <script>
