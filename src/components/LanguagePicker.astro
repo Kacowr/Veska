@@ -10,7 +10,7 @@ const currentLang = getLangFromUrl(Astro.url);
   {
     Object.entries(languages).map(([lang, label]) => (
       <li class:list={{ active: lang === currentLang }}>
-        <a href={`${lang}`}>{label}</a>
+        <a href={`/${lang}`}>{label}</a>
       </li>
     ))
   }
