@@ -1,0 +1,112 @@
+// ===== COLORS =====
+
+// Primary colors
+$color-primary: #1B2F63;
+$color-primary-light: rgba(27, 47, 99, 0.75);
+$color-primary-lighter: rgba(27, 47, 99, 0.7);
+
+// Gradient colors
+$color-gradient-blue: #6DC9F5;
+$color-gradient-blue-alt: #5DC9F5;
+$color-gradient-pink: #E76DF5;
+
+// Purple shades (WhyUs middle card)
+$color-purple: #810A8F;
+$color-purple-light: rgba(129, 10, 143, 0.75);
+
+// Timeline colors (Cooperation)
+$color-timeline-1: #215690;
+$color-timeline-2: #394390;
+$color-timeline-3: #51308F;
+$color-timeline-4: #691D8F;
+
+// Neutral colors
+$color-text-dark: #0C0C0C;
+$color-text-black: #1C1C1C;
+$color-background-light: #F9F9F9;
+$color-white: #FFFFFF;
+$color-border: rgba(0, 0, 0, 0.15);
+
+// Gradient opacity values
+$gradient-opacity-full: 0.8;
+$gradient-opacity-mid: 0.5;
+$gradient-opacity-light: 0.3;
+
+// ===== TYPOGRAPHY =====
+
+$font-family-primary: 'Rubik', serif;
+
+// Font sizes - Desktop
+$font-size-hero-title: 64px;
+$font-size-h1: 56px;
+$font-size-h2: 48px;
+$font-size-h3: 32px;
+$font-size-h4: 28px;
+$font-size-body-large: 24px;
+$font-size-body: 20px;
+$font-size-body-medium: 18px;
+$font-size-body-small: 16px;
+$font-size-small: 14px;
+
+// Font sizes - Mobile
+$font-size-mobile-h1: 28px;
+$font-size-mobile-h2: 20px;
+$font-size-mobile-body: 16px;
+$font-size-mobile-small: 13px;
+$font-size-mobile-tiny: 12px;
+
+// Font weights
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Line heights
+$line-height-tight: 140%;
+$line-height-normal: 150%;
+
+// Letter spacing
+$letter-spacing-normal: 0.18px;
+$letter-spacing-small: 0.15px;
+
+// ===== SPACING =====
+
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2rem;
+$spacing-xl: 2.5rem;
+$spacing-2xl: 3rem;
+$spacing-3xl: 5rem;
+$spacing-4xl: 7.5rem;
+$spacing-5xl: 10rem;
+$spacing-6xl: 15rem;
+
+// ===== BORDERS =====
+
+$border-radius-small: 8px;
+$border-radius-medium: 12px;
+$border-radius-large: 24px;
+$border-radius-xlarge: 32px;
+$border-radius-round: 50em;
+
+// ===== TRANSITIONS =====
+
+$transition-fast: 0.3s ease;
+$transition-normal: 0.5s ease;
+$transition-slow: 1s ease;
+$transition-cubic: cubic-bezier(0.4, 0, 0.2, 1);
+
+// ===== SHADOWS =====
+
+$shadow-gradient-blue: rgba(93, 201, 245, 0.5);
+$shadow-gradient-pink: rgba(231, 109, 245, 0.5);
+$shadow-picker: rgba(93, 201, 245, 0.15);
+$shadow-picker-border: rgba(93, 201, 245, 0.2);
+
+// ===== BREAKPOINTS =====
+
+$breakpoint-mobile: 768px;
+$breakpoint-tablet: 1200px;
+$breakpoint-desktop: 1600px;
+$breakpoint-wide: 1920px;

@@ -1,5 +1,6 @@
 ---
 import logo from "./../images/Group 25.svg";
+import LanguagePicker from "./LanguagePicker.astro";
 import "./Navbar.scss";
 
 const t = Astro.props.t;
@@ -7,6 +8,7 @@ const t = Astro.props.t;
 
 <div class="navbar">
   <img src={logo.src} alt="logo" />
+  <LanguagePicker />
   <div class="navbar-links">
     <a href="#dlaczego-potrzebuje-strony" class="navbar-link"
       >{t('nav.website')}</a
@@ -69,48 +71,60 @@ const t = Astro.props.t;
     });
   });
 
+  let ticking = false;
+
   window.addEventListener(
     "scroll",
     () => {
       if (disabledScrollEvent) return;
 
-      const sectionGetRects = sections.map((section) =>
-        section?.getBoundingClientRect()
-      );
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const sectionGetRects = sections.map((section) =>
+            section?.getBoundingClientRect()
+          );
 
-      let currentIndex = -1;
-      let currentSection: DOMRect;
+          let currentIndex = -1;
+          let currentSection: DOMRect | null = null;
 
-      sectionGetRects.forEach((section, index) => {
-        if (!section) return;
+          sectionGetRects.forEach((section, index) => {
+            if (!section) return;
 
-        if (
-          section.y >= 0 &&
-          section.y <= window.innerHeight - window.innerHeight / 4 &&
-          window.innerHeight >= section.y
-        ) {
-          if (currentIndex === -1 || section.y < currentSection.y) {
-            currentIndex = index;
-            currentSection = section;
-          }
-        }
-      });
+            const navbarHeight = 75;
+            const threshold = window.innerHeight / 3;
 
-      if (currentIndex !== -1) {
-        links.forEach((link, index) => {
-          if (index === currentIndex) {
-            link.classList.add("navbar-link-current");
-            gsap.to(link, { "--navbar-after-width": "100%", duration: 0.3 });
+            if (
+              section.top <= navbarHeight + threshold &&
+              section.bottom > navbarHeight
+            ) {
+              if (currentIndex === -1 || (currentSection && section.top > currentSection.top)) {
+                currentIndex = index;
+                currentSection = section;
+              }
+            }
+          });
+
+          if (currentIndex !== -1) {
+            links.forEach((link, index) => {
+              if (index === currentIndex) {
+                link.classList.add("navbar-link-current");
+                gsap.to(link, { "--navbar-after-width": "100%", duration: 0.3 });
+              } else {
+                link.classList.remove("navbar-link-current");
+                gsap.to(link, { "--navbar-after-width": 0, duration: 0.3 });
+              }
+            });
           } else {
-            link.classList.remove("navbar-link-current");
-            gsap.to(link, { "--navbar-after-width": 0, duration: 0.3 });
+            links.forEach((link) => {
+              link.classList.remove("navbar-link-current");
+              gsap.to(link, { "--navbar-after-width": 0, duration: 0.3 });
+            });
           }
+
+          ticking = false;
         });
-      } else {
-        links.forEach((link) => {
-          link.classList.remove("navbar-link-current");
-          gsap.to(link, { "--navbar-after-width": 0, duration: 0.3 });
-        });
+
+        ticking = true;
       }
     },
     false

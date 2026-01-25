@@ -25,7 +25,7 @@ export const ui = {
         'why-need-site.text.strong1': 'zwiększa widoczność',
         'why-need-site.text.strong2': 'nowych klientów',
         'why-need-site.text.strong3': 'budowanie silnej marki',
-        'why-us.heading': 'Dlaczego własnie my?',
+        'why-us.heading': 'Dlaczego właśnie my?',
         'why-us.transparency.heading': 'Transparentność',
         'why-us.transparency.desktop': 'Wiemy, jak ważna jest dobra komunikacja, dlatego dbamy o regularny kontakt z klientem. Na każdym etapie projektu prezentujemy bieżące postępy, omawiamy sugerowane zmiany oraz informujemy o dalszych działaniach. Dzięki temu masz pełną kontrolę nad projektem i realny wpływ na jego rozwój.',
         'why-us.transparency.mobile': 'Dbamy o regularny kontakt z klientem, prezentując postępy prac, omawiając proponowane zmiany i planując dalsze działania, abyś zawsze miał pełną kontrolę nad projektem i jego rozwojem.',

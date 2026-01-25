@@ -1,0 +1,193 @@
+@import './variables';
+
+// ===== GRADIENTS =====
+
+@mixin gradient-blue-pink {
+    background: linear-gradient(to right, $color-gradient-blue, $color-gradient-pink);
+}
+
+@mixin gradient-pink-blue {
+    background: linear-gradient(to right, $color-gradient-pink, $color-gradient-blue);
+}
+
+@mixin gradient-background-top($opacity-start: $gradient-opacity-full, $opacity-mid: $gradient-opacity-light, $opacity-end: 0) {
+    background: linear-gradient(to bottom, rgba(93, 201, 245, $opacity-start) 0%, rgba(93, 201, 245, $opacity-mid) 35%, rgba(93, 201, 245, $opacity-end) 70%),
+                linear-gradient(to bottom, rgba(231, 109, 245, $opacity-start) 0%, rgba(231, 109, 245, $opacity-mid) 35%, rgba(231, 109, 245, $opacity-end) 70%);
+}
+
+@mixin gradient-border {
+    background: linear-gradient($color-white, $color-white) padding-box,
+                linear-gradient(to right, $color-gradient-blue, $color-gradient-pink) border-box;
+    border: 4px solid transparent;
+}
+
+@mixin gradient-border-thin {
+    background: linear-gradient($color-white, $color-white) padding-box,
+                linear-gradient(to right, $color-gradient-blue, $color-gradient-pink) border-box;
+    border: 3px solid transparent;
+}
+
+// ===== SHADOWS =====
+
+@mixin box-shadow-gradient-blue {
+    box-shadow: 2px 2px 32px $shadow-gradient-blue;
+}
+
+@mixin box-shadow-gradient-pink {
+    box-shadow: 2px 2px 32px $shadow-gradient-pink;
+}
+
+@mixin box-shadow-hover {
+    box-shadow: -0.5rem 0 1rem $color-gradient-blue, 0.5rem 0 1rem $color-gradient-pink;
+}
+
+@mixin box-shadow-hover-reverse {
+    box-shadow: -1rem 0 2rem $color-gradient-blue, 1rem 0 2rem $color-gradient-pink;
+}
+
+// ===== BUTTONS =====
+
+@mixin button-primary {
+    color: $color-text-black;
+    font-size: $font-size-body;
+    padding: $spacing-sm $spacing-lg;
+    @include gradient-border;
+    border-radius: $border-radius-round;
+    cursor: pointer;
+    font-weight: $font-weight-semibold;
+    text-decoration: none;
+    transition: all $transition-fast;
+
+    &:hover {
+        @include box-shadow-hover-reverse;
+        transform: scale(1.1);
+    }
+
+    &:active {
+        transform: scale(0.9);
+    }
+}
+
+// ===== CARDS =====
+
+@mixin card-base($border-radius: $border-radius-xlarge) {
+    border: 1px solid $color-border;
+    border-radius: $border-radius;
+    padding: $spacing-xl;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+@mixin card-blue {
+    @include card-base;
+    @include box-shadow-gradient-blue;
+    color: $color-primary-light;
+}
+
+@mixin card-pink {
+    @include card-base;
+    @include box-shadow-gradient-pink;
+    background-color: $color-white;
+}
+
+// ===== TEXT STYLES =====
+
+@mixin text-body {
+    font-size: $font-size-body-medium;
+    line-height: $line-height-tight;
+    letter-spacing: $letter-spacing-normal;
+    color: $color-primary-light;
+}
+
+@mixin heading-primary {
+    font-size: $font-size-h1;
+    color: $color-primary;
+    font-weight: $font-weight-semibold;
+}
+
+@mixin heading-secondary {
+    font-size: $font-size-h3;
+    color: $color-primary;
+    font-weight: $font-weight-semibold;
+    text-align: center;
+}
+
+// ===== LINKS =====
+
+@mixin link-gradient-underline {
+    color: $color-text-dark;
+    text-decoration: none;
+    transition: all $transition-fast;
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        @include gradient-blue-pink;
+        transition: width $transition-fast;
+    }
+
+    &:hover {
+        color: $color-primary;
+
+        &::after {
+            width: 100%;
+        }
+    }
+}
+
+// ===== RESPONSIVE =====
+
+@mixin mobile {
+    @media screen and (max-width: $breakpoint-tablet) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and (min-width: $breakpoint-desktop) {
+        @content;
+    }
+}
+
+@mixin small-mobile {
+    @media screen and (max-width: $breakpoint-mobile) {
+        @content;
+    }
+}
+
+// ===== UTILITIES =====
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin full-width {
+    width: 100%;
+    box-sizing: border-box;
+}

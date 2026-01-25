@@ -1,36 +1,45 @@
 .navbar{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     background-color: #FFFFFFAF;
     backdrop-filter: blur(.35rem);
-    // gap:25rem;
-    justify-content: space-between;
-    padding:1rem 5rem;
+    padding:1rem 3%;
     position: fixed;
     width: 100%;
+    box-sizing: border-box;
     z-index: 10;
+    gap: 2rem;
 
     img{
-        height: 135px;
+        height: 75px;
+        max-height: 75px;
+        flex-shrink: 0;
+    }
+
+    .language-picker {
+        margin-left: auto;
     }
 
     &-links{
         display: flex;
         flex-direction: row;
-        gap:2.5rem;
+        gap:2rem;
         font-family: "Rubik", serif;
+        flex-wrap: wrap;
+        flex-shrink: 0;
     }
 
     &-link{
         text-decoration: none;
         color:#1B2F63;
         opacity: .5;
-        font-size: 1.25rem;
+        font-size: 1.1rem;
         display: block;
         position: relative;
         transition: opacity .3s;
+        white-space: nowrap;
     }
 }
 

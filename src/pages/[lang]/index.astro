@@ -5,7 +5,6 @@ import WhyNeedSite from "../../components/WhyNeedSite.astro";
 import WhyUs from "../../components/WhyUs.astro";
 import Cooperation from "../../components/Cooperation.astro";
 import Contact from "../../components/Contact.astro";
-import LanguagePicker from "../../components/LanguagePicker.astro";
 import "../../styles/global.css";
 import { getLangFromUrl, useTranslations } from "../../utils/utils.mjs";
 
@@ -39,7 +38,6 @@ export const getStaticPaths= () => {
     />
   </head>
   <body>
-    <LanguagePicker />
     <Navbar t={t}/>
     <Hero t={t} />
     <div class="main">
@@ -54,9 +52,17 @@ export const getStaticPaths= () => {
 <style>
   body {
     margin: 0;
+    overflow-x: hidden;
   }
   .main {
+    width: 100%;
+    max-width: 1920px;
     padding: 0 15%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
   }
 
   @media screen and (max-width: 1200px) {

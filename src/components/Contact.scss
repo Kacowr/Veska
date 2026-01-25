@@ -1,6 +1,10 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
 .contact{
-    padding-top: 10rem;
-    padding-bottom: 20rem;;
+    @include full-width;
+    padding-top: $spacing-5xl;
+    padding-bottom: $spacing-3xl;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -8,57 +12,60 @@
 
     &-info{
         &-heading{
-            font-size: 48px;
-            color: #1B2F63;
-            margin-bottom: 2.5rem;
-            font-weight: 600;
+            font-size: $font-size-h2;
+            color: $color-primary;
+            margin-bottom: $spacing-xl;
+            font-weight: $font-weight-semibold;
         }
-    
+
         &-text{
-            font-size: 20px;
-            color: #0C0C0C;
+            font-size: $font-size-body;
+            color: $color-text-dark;
             width: 45ch;
-            margin-bottom: 2.5rem;
-            line-height: 140%;
-            letter-spacing: 0.18px;
+            margin-bottom: $spacing-xl;
+            line-height: $line-height-tight;
+            letter-spacing: $letter-spacing-normal;
         }
-    
+
         &-contactdetails{
             display: flex;
             flex-direction: row;
-            gap:1.5rem;
+            gap: $spacing-md;
             align-items: center;
-            margin-bottom: 1.5rem;
-            line-height: 140%;
-            letter-spacing: 0.18px;
-            font-size: 20px;
+            margin-bottom: $spacing-md;
+            line-height: $line-height-tight;
+            letter-spacing: $letter-spacing-normal;
+            font-size: $font-size-body;
+        }
+
+        &-link{
+            @include link-gradient-underline;
         }
     }
 
     &-formbox{
         &-form{
-            display: flex;
-            flex-direction: column;
+            @include flex-column;
         }
 
         &-label{
-            font-size: 16px;
-            color: #0C0C0C;
+            font-size: $font-size-body-small;
+            color: $color-text-dark;
             margin-bottom: 0.75rem;
         }
 
         &-input{
             padding: .75rem;
             width: 370px;
-            background-color: #F9F9F9;
+            background-color: $color-background-light;
             border: none;
             margin-bottom: 1.375rem;
             outline: none;
             font-size: 1.25rem;
             font-family: inherit;
-            transition: box-shadow .3s;
+            transition: box-shadow $transition-fast;
             &:focus {
-            box-shadow: 0.5rem 0 1rem #6DC9F5, -.5rem 0 1rem #E76DF5;
+                box-shadow: 0.5rem 0 1rem $color-gradient-blue, -.5rem 0 1rem $color-gradient-pink;
             }
         }
 
@@ -70,164 +77,163 @@
         &-input:nth-of-type(2n+1){
             background:
             linear-gradient(
-            to left, 
-            #E76DF5,
-            #5DC9F5
+            to left,
+            $color-gradient-pink,
+            $color-gradient-blue-alt
             )
             left
             bottom
-            #F9F9F9
-            no-repeat; 
+            $color-background-light
+            no-repeat;
             background-size:100% 3px;
         }
 
         &-input:nth-of-type(2n){
             background:
             linear-gradient(
-            to left, 
-            #5DC9F5,
-            #E76DF5
+            to left,
+            $color-gradient-blue-alt,
+            $color-gradient-pink
             )
             left
             bottom
-            #F9F9F9
-            no-repeat; 
+            $color-background-light
+            no-repeat;
             background-size:100% 3px;
         }
 
         &-submit{
-            color:#1C1C1C;
-            font-size: 20px;
-            padding: 1rem 2rem;
-            background: linear-gradient(white, white) padding-box,
-                linear-gradient(to right, #6DC9F5, #E76DF5) border-box;
-            border-radius: 50em;
-            border: 3px solid transparent;
+            @include gradient-border-thin;
+            color: $color-text-black;
+            font-size: $font-size-body;
+            padding: $spacing-sm $spacing-lg;
+            border-radius: $border-radius-round;
             cursor: pointer;
-            font-weight: 600;
+            font-weight: $font-weight-semibold;
             text-decoration: none;
             margin-top: 1.375rem;
+            transition: box-shadow $transition-fast;
 
-            transition: box-shadow .3s;   
-        &:hover {
-            box-shadow: -.5rem 0 1rem #6DC9F5, .5rem 0 1rem #E76DF5;
-        }
+            &:hover {
+                @include box-shadow-hover;
+            }
         }
     }
 }
 
-@media screen and (max-width:1200px){
+@include mobile {
     .contact{
-        padding-bottom: 5rem;
-        display: flex;
-        flex-direction: column;
+        padding-bottom: $spacing-2xl;
+        @include flex-column;
         padding-left: 5%;
         padding-right: 5%;
         padding-top: 0;
 
         &-info{
-            width: 100%;
+            @include full-width;
             &-heading{
-                font-size: 28px;
-                color: #1B2F63;
-                margin-bottom: 2.5rem;
-                font-weight: 600;
+                font-size: $font-size-mobile-h1;
+                color: $color-primary;
+                margin-bottom: $spacing-xl;
+                font-weight: $font-weight-semibold;
             }
 
             &-text{
-                font-size: 16px;
-                color: #0C0C0C;
+                font-size: $font-size-mobile-body;
+                color: $color-text-dark;
                 width: 32ch;
-                margin-bottom: 2.5rem;
-                line-height: 140%;
-                letter-spacing: 0.18px;
+                margin-bottom: $spacing-xl;
+                line-height: $line-height-tight;
+                letter-spacing: $letter-spacing-normal;
             }
 
             &-contactdetails{
                 display: flex;
                 flex-direction: row;
-                gap:1rem;
+                gap: $spacing-sm;
                 align-items: center;
-                margin-bottom: 1.5rem;
-                line-height: 140%;
-                letter-spacing: 0.18px;
+                margin-bottom: $spacing-md;
+                line-height: $line-height-tight;
+                letter-spacing: $letter-spacing-normal;
                 font-size: 15px;
+            }
+
+            &-link{
+                @include link-gradient-underline;
             }
         }
 
         &-formbox{
-            width: 100%;
+            @include full-width;
 
             &-form{
-                display: flex;
-                flex-direction: column;
-                padding-top: 3rem;
+                @include flex-column;
+                padding-top: $spacing-2xl;
             }
 
             &-label{
-                font-size: 16px;
-                color: #0C0C0C;
+                font-size: $font-size-body-small;
+                color: $color-text-dark;
                 margin-bottom: 0.75rem;
             }
 
             &-input{
                 padding: .75rem;
                 width: calc(100% - 1.50rem);
-                background-color: #F9F9F9;
+                background-color: $color-background-light;
                 border: none;
                 margin-bottom: 1.375rem;
                 outline: none;
                 font-size: 1.25rem;
                 font-family: inherit;
-                transition: box-shadow .3s;
+                transition: box-shadow $transition-fast;
                 &:focus {
-                box-shadow: 0.5rem 0 1rem #6DC9F5, -.5rem 0 1rem #E76DF5;
+                    box-shadow: 0.5rem 0 1rem $color-gradient-blue, -.5rem 0 1rem $color-gradient-pink;
                 }
             }
 
             &-input:nth-of-type(2n+1){
                 background:
                 linear-gradient(
-                to left, 
-                #E76DF5,
-                #5DC9F5
+                to left,
+                $color-gradient-pink,
+                $color-gradient-blue-alt
                 )
                 left
                 bottom
-                #F9F9F9
-                no-repeat; 
+                $color-background-light
+                no-repeat;
                 background-size:100% 3px;
             }
-    
+
             &-input:nth-of-type(2n){
                 background:
                 linear-gradient(
-                to left, 
-                #5DC9F5,
-                #E76DF5
+                to left,
+                $color-gradient-blue-alt,
+                $color-gradient-pink
                 )
                 left
                 bottom
-                #F9F9F9
-                no-repeat; 
+                $color-background-light
+                no-repeat;
                 background-size:100% 3px;
             }
 
             &-submit{
-                color:#1C1C1C;
-                font-size: 20px;
-                padding: 1rem 2rem;
-                background: linear-gradient(white, white) padding-box,
-                    linear-gradient(to right, #6DC9F5, #E76DF5) border-box;
-                border-radius: 50em;
-                border: 3px solid transparent;
+                @include gradient-border-thin;
+                color: $color-text-black;
+                font-size: $font-size-body;
+                padding: $spacing-sm $spacing-lg;
+                border-radius: $border-radius-round;
                 cursor: pointer;
-                font-weight: 600;
+                font-weight: $font-weight-semibold;
                 text-decoration: none;
                 margin-top: 1.375rem;
-                transition: box-shadow .3s;   
+                transition: box-shadow $transition-fast;
+
                 &:hover {
-                    box-shadow: -.5rem 0 1rem #6DC9F5, .5rem 0 1rem #E76DF5;
+                    @include box-shadow-hover;
                 }
             }
 
