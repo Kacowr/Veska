@@ -217,6 +217,192 @@
     }
 }
 
+@media screen and (min-width: 2560px) and (max-width: 3440px) {
+    .cooperation {
+        height: 1150px;
+        padding-top: 7rem;
+
+        &-heading{
+            font-size: 3.5rem;
+            padding-bottom: 8rem;
+        }
+
+        &-timeline{
+            height: 650px;
+
+            &-left{
+                gap: 95px;
+
+                &-content{
+                    gap: 35px;
+
+                    &-details{
+                        height: 170px;
+                        h1, h2{
+                            font-size: 2.2rem;
+                            padding-bottom: 0.9rem;
+                        }
+
+                        p{
+                            font-size: 1.35rem;
+                        }
+                    }
+
+                    &-number{
+                        font-size: 5.5rem;
+                    }
+                }
+
+                &-content:nth-of-type(1){
+                    margin-top: 70px;
+                }
+            }
+
+            &-right{
+                gap: 95px;
+
+                &-content{
+                    gap: 35px;
+
+                    &-details{
+                        height: 170px;
+                        h1, h2{
+                            font-size: 2.2rem;
+                            padding-bottom: 0.9rem;
+                        }
+
+                        p{
+                            font-size: 1.35rem;
+                        }
+                    }
+
+                    &-number{
+                        font-size: 5.5rem;
+                    }
+                }
+
+                &-content:nth-of-type(2){
+                    margin-top: 215px;
+                }
+            }
+
+            &-line{
+                gap: 95px;
+
+                &-line{
+                    width: 12px;
+                    height: 650px;
+                }
+
+                &-circle{
+                    height: 42px;
+                    width: 42px;
+                    border: 6px solid white;
+                }
+            }
+        }
+    }
+
+    .first{
+        &-dot{
+            margin-top: 95px;
+        }
+    }
+}
+
+@media screen and (min-width: 3441px) {
+    .cooperation {
+        height: 2000px;
+        padding-top: 10rem;
+
+        &-heading{
+            font-size: 5.5rem;
+            padding-bottom: 14rem;
+        }
+
+        &-timeline{
+            height: 1100px;
+
+            &-left{
+                gap: 160px;
+
+                &-content{
+                    gap: 60px;
+
+                    &-details{
+                        height: 280px;
+                        h1, h2{
+                            font-size: 3.5rem;
+                            padding-bottom: 1.5rem;
+                        }
+
+                        p{
+                            font-size: 2rem;
+                        }
+                    }
+
+                    &-number{
+                        font-size: 8rem;
+                    }
+                }
+
+                &-content:nth-of-type(1){
+                    margin-top: 120px;
+                }
+            }
+
+            &-right{
+                gap: 160px;
+
+                &-content{
+                    gap: 60px;
+
+                    &-details{
+                        height: 280px;
+                        h1, h2{
+                            font-size: 3.5rem;
+                            padding-bottom: 1.5rem;
+                        }
+
+                        p{
+                            font-size: 2rem;
+                        }
+                    }
+
+                    &-number{
+                        font-size: 8rem;
+                    }
+                }
+
+                &-content:nth-of-type(2){
+                    margin-top: 360px;
+                }
+            }
+
+            &-line{
+                gap: 160px;
+
+                &-line{
+                    width: 20px;
+                    height: 1100px;
+                }
+
+                &-circle{
+                    height: 70px;
+                    width: 70px;
+                    border: 10px solid white;
+                }
+            }
+        }
+    }
+
+    .first{
+        &-dot{
+            margin-top: 160px;
+        }
+    }
+}
+
 @media screen and (max-width: 1200px){
     .cooperation{
         height: 1100px;

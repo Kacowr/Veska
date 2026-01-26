@@ -52,6 +52,62 @@
     }
 }
 
+@media screen and (min-width: 2560px) and (max-width: 3440px) {
+    .whyneedsite {
+        height: auto;
+        min-height: 100vh;
+        padding-top: 12vh;
+        padding-bottom: 8vh;
+
+        &-info {
+            &-heading {
+                font-size: 3.5rem;
+                margin-bottom: 3.5rem;
+            }
+
+            &-text {
+                font-size: 1.5rem;
+                width: 43ch;
+                line-height: 1.6;
+            }
+        }
+
+        &-foto {
+            &-laptop {
+                transform: scale(1.2);
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 3441px) {
+    .whyneedsite {
+        height: auto;
+        min-height: 100vh;
+        padding-top: 18vh;
+        padding-bottom: 12vh;
+
+        &-info {
+            &-heading {
+                font-size: 5.5rem;
+                margin-bottom: 5rem;
+            }
+
+            &-text {
+                font-size: 2.25rem;
+                width: 50ch;
+                line-height: 1.6;
+            }
+        }
+
+        &-foto {
+            &-laptop {
+                transform: scale(1.6);
+            }
+        }
+    }
+}
+
 @media screen and (max-width:1200px) {
     .whyneedsite{
         margin-top: 0;

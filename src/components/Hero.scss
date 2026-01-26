@@ -81,6 +81,52 @@
     }
 }
 
+@media screen and (min-width: 2560px) and (max-width: 3440px) {
+    .hero {
+        height: calc(100vh + 85px);
+
+        &-details {
+            gap: 42px;
+        }
+
+        &-subtitle {
+            font-size: 1.5rem;
+        }
+
+        &-title {
+            font-size: 4.5rem;
+        }
+
+        &-button {
+            font-size: 1.35rem;
+            padding: 1.15rem 2.25rem;
+        }
+    }
+}
+
+@media screen and (min-width: 3441px) {
+    .hero {
+        height: calc(100vh + 120px);
+
+        &-details {
+            gap: 70px;
+        }
+
+        &-subtitle {
+            font-size: 2.25rem;
+        }
+
+        &-title {
+            font-size: 6.5rem;
+        }
+
+        &-button {
+            font-size: 2rem;
+            padding: 1.75rem 3.5rem;
+        }
+    }
+}
+
 @include mobile {
     .hero{
         @include flex-column;
@@ -89,10 +135,11 @@
         @include full-width;
         height: calc(100vh + 75px);
         margin-bottom: 0;
+        padding-top: 80px;
 
         &-details{
             position: absolute;
-            top: 40%;
+            top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             width: 100%;

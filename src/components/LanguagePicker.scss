@@ -245,6 +245,92 @@ $transition-easing: $transition-cubic;
     border-radius: 8px;
   }
 
+  @media screen and (min-width: 2560px) and (max-width: 3440px) {
+    height: 52px;
+
+    > li {
+      max-height: 52px;
+
+      a {
+        font-size: 16px;
+        padding: 14px 18px;
+      }
+
+      &.active {
+        max-height: 52px;
+        height: 52px;
+
+        a {
+          padding-right: 42px;
+          padding-left: 18px;
+        }
+
+        &::after {
+          font-size: 9px;
+          right: 16px;
+        }
+      }
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        > li {
+          max-height: 52px;
+          height: 52px;
+
+          @for $i from 1 through 10 {
+            &:nth-child(#{$i}) {
+              top: #{($i - 1) * 52}px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 3441px) {
+    height: 75px;
+
+    > li {
+      max-height: 75px;
+
+      a {
+        font-size: 22px;
+        padding: 20px 24px;
+      }
+
+      &.active {
+        max-height: 75px;
+        height: 75px;
+
+        a {
+          padding-right: 55px;
+          padding-left: 24px;
+        }
+
+        &::after {
+          font-size: 12px;
+          right: 22px;
+        }
+      }
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        > li {
+          max-height: 75px;
+          height: 75px;
+
+          @for $i from 1 through 10 {
+            &:nth-child(#{$i}) {
+              top: #{($i - 1) * 75}px;
+            }
+          }
+        }
+      }
+    }
+  }
+
   @media screen and (max-width: 1200px) {
     position: fixed;
     top: 1.5rem;

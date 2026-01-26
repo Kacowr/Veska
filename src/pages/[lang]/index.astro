@@ -65,6 +65,20 @@ export const getStaticPaths= () => {
     margin: 0 auto;
   }
 
+  @media screen and (min-width: 2560px) and (max-width: 3440px) {
+    .main {
+      max-width: 2600px;
+      padding: 0 12%;
+    }
+  }
+
+  @media screen and (min-width: 3441px) {
+    .main {
+      max-width: 3400px;
+      padding: 0 10%;
+    }
+  }
+
   @media screen and (max-width: 1200px) {
     .main {
       padding: 0 0;
