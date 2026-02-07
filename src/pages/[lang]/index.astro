@@ -7,6 +7,7 @@ import Cooperation from "../../components/Cooperation.astro";
 import Contact from "../../components/Contact.astro";
 import "../../styles/global.css";
 import { getLangFromUrl, useTranslations } from "../../utils/utils.mjs";
+import PastProjects from "../../components/PastProjects.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -44,6 +45,7 @@ export const getStaticPaths= () => {
       <WhyNeedSite t={t} />
       <WhyUs t={t} />
       <Cooperation t={t} />
+      <PastProjects t={t}/>
       <Contact t={t} />
     </div>
   </body>
