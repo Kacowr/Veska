@@ -4,9 +4,9 @@ import "./../components/Hero.scss";
 const t = Astro.props.t;
 ---
 
-<div class="hero">
+<section class="hero">
   <div class="hero-squares"></div>
-  <div class="hero-details">
+  <header class="hero-details">
     <h1 class="hero-title">
       {t('hero.title.part1')}<br /> {t('hero.title.part2')} <span
         class="hero-title-innerText">{t('hero.title.highlight')}</span
@@ -16,9 +16,9 @@ const t = Astro.props.t;
       {t('hero.subtitle')}
     </p>
     <a href="#kontakt" class="hero-button">{t('hero.button')}</a>
-  </div>
+  </header>
   <div class="hero-gradient"></div>
-</div>
+</section>
 
 <script>
   import { gsap } from "gsap";

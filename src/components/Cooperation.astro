@@ -4,130 +4,103 @@ import "./Cooperation.scss";
 const t = Astro.props.t;
 ---
 
-<div class="cooperation" id="jak-wyglada-wspolpraca">
-  <h2 class="cooperation-heading">{t('cooperation.heading')}</h2>
+<section class="cooperation" id="jak-wyglada-wspolpraca">
+  <header>
+    <h2 class="cooperation-heading">{t('cooperation.heading')}</h2>
+  </header>
+
   <div class="cooperation-timeline">
-    <div class="cooperation-timeline-left">
-      <div class="cooperation-timeline-left-content">
-        <div class="cooperation-timeline-left-content-details first-text">
-          <h2>{t('cooperation.step1.title')}</h2>
-          <p>
-            {t('cooperation.step1.text')}
-          </p>
-        </div>
-        <div class="cooperation-timeline-left-content-number first-number">
+    <!-- Left side (desktop) -->
+    <ol class="cooperation-timeline-left">
+      <li class="cooperation-timeline-left-content">
+        <article class="cooperation-timeline-left-content-details first-text">
+          <h3>{t('cooperation.step1.title')}</h3>
+          <p>{t('cooperation.step1.text')}</p>
+        </article>
+        <span
+          class="cooperation-timeline-left-content-number first-number"
+          aria-hidden="true"
+        >
           1
-        </div>
-      </div>
-      <div class="cooperation-timeline-left-content">
-        <div class="cooperation-timeline-left-content-details third-text">
-          <h2>{t('cooperation.step3.title')}</h2>
-          <p>
-            {t('cooperation.step3.text')}
-          </p>
-        </div>
-        <div class="cooperation-timeline-left-content-number third-number">
+        </span>
+      </li>
+
+      <li class="cooperation-timeline-left-content">
+        <article class="cooperation-timeline-left-content-details third-text">
+          <h3>{t('cooperation.step3.title')}</h3>
+          <p>{t('cooperation.step3.text')}</p>
+        </article>
+        <span
+          class="cooperation-timeline-left-content-number third-number"
+          aria-hidden="true"
+        >
           3
-        </div>
-      </div>
-    </div>
-    <div class="cooperation-timeline-line">
+        </span>
+      </li>
+    </ol>
+
+    <!-- Timeline axis -->
+    <aside class="cooperation-timeline-line" aria-hidden="true">
       <div class="cooperation-timeline-line-line"></div>
       <div class="cooperation-timeline-line-circle first-dot"></div>
       <div class="cooperation-timeline-line-circle second-dot"></div>
       <div class="cooperation-timeline-line-circle third-dot"></div>
       <div class="cooperation-timeline-line-circle fourth-dot"></div>
-    </div>
-    <div class="cooperation-timeline-right">
-      <div class="cooperation-timeline-right-content mobile-item">
-        <div class="cooperation-timeline-right-content-number first-number">
+    </aside>
+
+    <!-- Right side -->
+    <ol class="cooperation-timeline-right">
+      <li class="cooperation-timeline-right-content mobile-item">
+        <span
+          class="cooperation-timeline-right-content-number first-number"
+          aria-hidden="true"
+        >
           1
-        </div>
-        <div class="cooperation-timeline-right-content-details first-text">
-          <h2>{t('cooperation.step1.title')}</h2>
-          <p>
-            {t('cooperation.step1.text')}
-          </p>
-        </div>
-      </div>
-      <div class="cooperation-timeline-right-content">
-        <div class="cooperation-timeline-right-content-number second-number">
+        </span>
+        <article class="cooperation-timeline-right-content-details first-text">
+          <h3>{t('cooperation.step1.title')}</h3>
+          <p>{t('cooperation.step1.text')}</p>
+        </article>
+      </li>
+
+      <li class="cooperation-timeline-right-content">
+        <span
+          class="cooperation-timeline-right-content-number second-number"
+          aria-hidden="true"
+        >
           2
-        </div>
-        <div class="cooperation-timeline-right-content-details second-text">
-          <h2>{t('cooperation.step2.title')}</h2>
-          <p>
-            {t('cooperation.step2.text')}
-          </p>
-        </div>
-      </div>
-      <div class="cooperation-timeline-right-content mobile-item">
-        <div class="cooperation-timeline-right-content-number third-number">
+        </span>
+        <article class="cooperation-timeline-right-content-details second-text">
+          <h3>{t('cooperation.step2.title')}</h3>
+          <p>{t('cooperation.step2.text')}</p>
+        </article>
+      </li>
+
+      <li class="cooperation-timeline-right-content mobile-item">
+        <span
+          class="cooperation-timeline-right-content-number third-number"
+          aria-hidden="true"
+        >
           3
-        </div>
-        <div class="cooperation-timeline-right-content-details third-text">
-          <h2>{t('cooperation.step3.title')}</h2>
-          <p>
-            {t('cooperation.step3.text')}
-          </p>
-        </div>
-      </div>
-      <div class="cooperation-timeline-right-content">
-        <div class="cooperation-timeline-right-content-number fourth-number">
+        </span>
+        <article class="cooperation-timeline-right-content-details third-text">
+          <h3>{t('cooperation.step3.title')}</h3>
+          <p>{t('cooperation.step3.text')}</p>
+        </article>
+      </li>
+
+      <li class="cooperation-timeline-right-content">
+        <span
+          class="cooperation-timeline-right-content-number fourth-number"
+          aria-hidden="true"
+        >
           4
-        </div>
-        <div class="cooperation-timeline-right-content-details fourth-text">
-          <h2>{t('cooperation.step4.title')}</h2>
-          <p>
-            {t('cooperation.step4.text')}
-          </p>
-        </div>
-      </div>
-    </div>
+        </span>
+        <article class="cooperation-timeline-right-content-details fourth-text">
+          <h3>{t('cooperation.step4.title')}</h3>
+          <p>{t('cooperation.step4.text')}</p>
+        </article>
+      </li>
+    </ol>
   </div>
-</div>
-
-<script>
-  import { gsap } from "gsap";
-      import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-      gsap.registerPlugin(ScrollTrigger);
-
-      // ====================================
-      //          ANIMATIONS
-      // ====================================
-      gsap.from(".cooperation-heading", {
-          scrollTrigger: ".cooperation",
-          opacity: 0,
-          y: -50,
-          });
-      gsap.from(".cooperation-timeline-line-line", {
-          scrollTrigger: ".cooperation",
-          opacity: 0,
-          height: 0,
-          y: -50,
-          duration: 1.2,
-          delay: 0.5,
-          });
-      gsap.from(".cooperation-timeline-line-circle", {
-          scrollTrigger: ".cooperation",
-          opacity: 0,
-          y: -25,
-          stagger: 0.3,
-          delay: 0.5,
-          });
-      gsap.from(".cooperation-timeline-right-content", {
-          scrollTrigger: ".cooperation",
-          delay: 0.8,
-          stagger: 0.4,
-          opacity: 0,
-          x: 50,
-          });
-      gsap.from(".cooperation-timeline-left-content", {
-          scrollTrigger: ".cooperation",
-          delay: 0.65,
-          stagger: 0.4,
-          opacity: 0,
-          x: -50,
-          });
-</script>
+</section>

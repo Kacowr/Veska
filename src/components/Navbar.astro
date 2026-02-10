@@ -6,10 +6,10 @@ import "./Navbar.scss";
 const t = Astro.props.t;
 ---
 
-<div class="navbar">
+<nav class="navbar">
   <img src={logo.src} alt="logo" />
   <LanguagePicker />
-  <div class="navbar-links">
+  <nav class="navbar-links">
     <a href="#dlaczego-potrzebuje-strony" class="navbar-link"
       >{t('nav.website')}</a
     >
@@ -23,8 +23,8 @@ const t = Astro.props.t;
     >{t('nav.past-projects')}</a
     >
     <a href="#kontakt" class="navbar-link">{t('nav.contact')}</a>
-  </div>
-</div>
+  </nav>
+</nav>
 
 <script>
   import { gsap } from "gsap";

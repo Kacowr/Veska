@@ -4,10 +4,10 @@ import "./WhyUs.scss";
 const t = Astro.props.t;
 ---
 
-<div class="whyus" id="dlaczego-wlasnie-my">
+<section class="whyus" id="dlaczego-wlasnie-my">
   <h2>{t('why-us.heading')}</h2>
-  <div class="whyus-details" id="whyus-details"> {/* Added id here */}
-    <div class="whyus-side whyus-left">
+  <section class="whyus-details" id="whyus-details"> {/* Added id here */}
+    <article class="whyus-side whyus-left">
       <h3 class="whyus-side-heading">{t('why-us.transparency.heading')}</h3>
       <hr />
       <p class="desktop-text">
@@ -17,9 +17,9 @@ const t = Astro.props.t;
       <p class="mobile-text">
         {t('why-us.transparency.mobile')}
       </p>
-    </div>
+    </article>
 
-    <div class="whyus-middle">
+    <article class="whyus-middle">
       <h3 class="whyus-middle-heading">{t('why-us.solutions.heading')}</h3>
       <hr />
       <p class="desktop-text">
@@ -29,8 +29,8 @@ const t = Astro.props.t;
       <p class="mobile-text">
         {t('why-us.solutions.mobile')}
       </p>
-    </div>
-    <div class="whyus-side whyus-right">
+    </article>
+    <diarticlev class="whyus-side whyus-right">
       <h3 class="whyus-side-heading">{t('why-us.team.heading')}</h3>
       <hr />
       <p class="desktop-text">
@@ -40,9 +40,9 @@ const t = Astro.props.t;
       <p class="mobile-text">
         {t('why-us.team.mobile')}
       </p>
-    </div>
-  </div>
-</div>
+    </article>
+  </section>
+</section>
 
 <script>
   import { gsap } from "gsap";

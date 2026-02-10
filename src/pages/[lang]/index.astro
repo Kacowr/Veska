@@ -39,17 +39,34 @@ export const getStaticPaths= () => {
     />
   </head>
   <body>
-    <Navbar t={t}/>
-    <Hero t={t} />
-    <div class="main">
-      <WhyNeedSite t={t} />
-      <WhyUs t={t} />
-      <Cooperation t={t} />
-      <PastProjects t={t}/>
-      <Contact t={t} />
-    </div>
+      <Navbar t={t}/>
+      <Hero t={t} />
+      <div class="main">
+        <WhyNeedSite t={t} />
+        <WhyUs t={t} />
+        <Cooperation t={t} />
+        <PastProjects t={t}/>
+        <Contact t={t} />
+      </div>
   </body>
 </html>
+
+<script>
+  import Lenis from '@studio-freight/lenis'
+
+  const lenis = new Lenis({
+  duration: 0,
+  easing: (t: number) => 1 - Math.pow(1 - t, 4),
+  smoothWheel: true
+})
+
+function raf(time: number) {
+  lenis.raf(time)
+  requestAnimationFrame(raf)
+}
+
+requestAnimationFrame(raf)
+</script>
 
 <style>
   body {
