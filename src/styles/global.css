@@ -9,14 +9,14 @@ html {
     --navbar-after-width: 100%;
 }
 
-*, html {
+/* *, html {
 
     scroll-behavior: smooth !important;
-}
+} */
 
 body{
     font-family: "Rubik" !important;
-	scroll-behavior: smooth !important;
+	/* scroll-behavior: smooth !important; */
 }
 
 /* http://meyerweb.com/eric/tools/css/reset/ 

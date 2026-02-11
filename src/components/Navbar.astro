@@ -6,10 +6,10 @@ import "./Navbar.scss";
 const t = Astro.props.t;
 ---
 
-<div class="navbar">
+<nav class="navbar">
   <img src={logo.src} alt="logo" />
   <LanguagePicker />
-  <div class="navbar-links">
+  <nav class="navbar-links">
     <a href="#dlaczego-potrzebuje-strony" class="navbar-link"
       >{t('nav.website')}</a
     >
@@ -17,11 +17,14 @@ const t = Astro.props.t;
       {t('nav.why-us')}
     </a>
     <a href="#jak-wyglada-wspolpraca" class="navbar-link"
-      >{t('nav.cooperate')}</a
+    >{t('nav.cooperate')}</a
+    >
+    <a href="#nasze-projekty" class="navbar-link"
+    >{t('nav.past-projects')}</a
     >
     <a href="#kontakt" class="navbar-link">{t('nav.contact')}</a>
-  </div>
-</div>
+  </nav>
+</nav>
 
 <script>
   import { gsap } from "gsap";
@@ -34,6 +37,7 @@ const t = Astro.props.t;
     document.querySelector("#dlaczego-potrzebuje-strony"),
     document.querySelector("#dlaczego-wlasnie-my"),
     document.querySelector("#jak-wyglada-wspolpraca"),
+    document.querySelector("#nasze-projekty"),
     document.querySelector("#kontakt"),
   ];
 

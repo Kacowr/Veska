@@ -6,8 +6,8 @@ import laptop from "./../images/g8.svg";
 const t = Astro.props.t;
 ---
 
-<div class="whyneedsite" id="dlaczego-potrzebuje-strony">
-  <div class="whyneedsite-info">
+<section class="whyneedsite" id="dlaczego-potrzebuje-strony">
+  <article class="whyneedsite-info">
     <h2 class="whyneedsite-info-heading">{t('why-need-site.heading')}</h2>
     <p class="whyneedsite-info-text">
       {t('why-need-site.text.part1')} <strong
@@ -16,12 +16,12 @@ const t = Astro.props.t;
       <strong>{t('why-need-site.text.strong2')}</strong> {t('why-need-site.text.part3')}
       <strong>{t('why-need-site.text.strong3')}</strong> {t('why-need-site.text.part4')}
     </p>
-  </div>
-  <div class="whyneedsite-foto">
+  </article>
+  <figure class="whyneedsite-foto">
     <img src={blob.src} class="whyneedsite-foto-blob" alt="blob" />
     <img class="whyneedsite-foto-laptop" src={laptop.src} alt="blob" />
-  </div>
-</div>
+  </figure>
+</section>
 
 <script>
   import { gsap } from "gsap";

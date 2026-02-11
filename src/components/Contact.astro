@@ -8,22 +8,22 @@ const successMessage = Astro.props.t("contact.form.success");
 const errorMessage = Astro.props.t("contact.form.error");
 ---
 
-<div class="contact" id="kontakt">
-  <div class="contact-info">
+<section class="contact" id="kontakt">
+  <section class="contact-info">
     <h2 class="contact-info-heading">{t("contact.heading")}</h2>
     <p class="contact-info-text">
       {t("contact.text")}
     </p>
-    <div class="contact-info-contactdetails">
+    <section class="contact-info-contactdetails">
       <img src={envelope.src} alt="koperta" />
       <a href="mailto:veskasolutions@gmail.com" class="contact-info-link">veskasolutions@gmail.com</a>
-    </div>
-    <div class="contact-info-contactdetails">
+    </section>
+    <section class="contact-info-contactdetails">
       <img src={phone.src} alt="telefon" />
       <a href="tel:+48536210906" class="contact-info-link">+48 536 210 906</a>
-    </div>
-  </div>
-  <div class="contact-formbox">
+    </section>
+  </section>
+  <section class="contact-formbox">
     <form method="POST" class="contact-formbox-form">
       <p class="contact-formbox-label">{t("contact.form.name")}</p>
       <input
@@ -62,8 +62,8 @@ const errorMessage = Astro.props.t("contact.form.error");
         value={t("contact.form.submit")}
       />
     </form>
-  </div>
-</div>
+  </section>
+</section>
 
 <script is:inline>
   if (window.history.replaceState) {
@@ -98,11 +98,16 @@ const errorMessage = Astro.props.t("contact.form.error");
 
 <script>
   import { gsap } from "gsap";
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+  import ScrollTrigger from "gsap/src/ScrollTrigger";
+  
+
+  // gsap.registerPlugin(ScrollTrigger);
   gsap.registerPlugin(ScrollTrigger);
 
   // const tl = gsap.timeline();
+
+ 
 
   gsap.from(".contact-formbox > *", {
     scrollTrigger: ".contact-formbox",

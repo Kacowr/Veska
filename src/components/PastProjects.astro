@@ -1,0 +1,56 @@
+---
+import "./PastProjects.scss";
+import sokol from '../images/sokol.png';
+import expo from '../images/expo.png';
+import rnanaliza from "../images/rnanaliza.png";
+
+const t = Astro.props.t;
+
+
+
+type Project = {
+  id: string,
+  name: string,
+  image: string,
+  link: string,
+};
+
+const projects: Project[] = [
+  {
+    id: '1',
+    name: "Expo Aluminium",
+    image: expo.src,
+    link: "https://expo-aluminium.pl/"
+  },
+  {
+    id: '2',
+    name: "Sokół Marcinkowice",
+    image: sokol.src,
+    link: "https://sokol-marcinkowice.vercel.app/"
+  },
+  {
+    id: '3',
+    name: "RNAnaliza",
+    image: rnanaliza.src,
+    link: "https://grondig.github.io/motorola/"
+  },
+] 
+
+---
+
+<section class="past-projects" id="nasze-projekty">
+  <h2>{t('past-projects')}</h2>
+  <section class="project-catalogue">
+    {
+      projects.map(project => (
+      <figure class="project-catalogue-item">
+        <a href={project.link} target="_blank">
+          <img src={project.image} alt={`Strona ${project.name}`}>
+          <p>{project.name}</p>
+        </a>
+      </figure>
+      ))
+    }
+    
+  </section>
+</section>
